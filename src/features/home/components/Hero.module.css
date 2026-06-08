@@ -1,0 +1,177 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  color: #fff;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 360px;
+  margin-bottom: 35px;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: #1a1a1a;
+  padding: 12px 24px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.slider {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.sliderBtn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.track {
+  width: 180px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.track::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: #fff;
+}
+
+.bottomText {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  text-align: center;
+  z-index: 2;
+  max-width: 450px;
+}
+
+.consultCard {
+  position: absolute;
+  right: 60px;
+  bottom: 55px;
+  background: #e85a2e;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  z-index: 2;
+  border-radius: 4px;
+}
+
+.consultCard svg {
+  width: 20px;
+  height: 20px;
+}
+
+.consultCard span {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 20px;
+    min-height: 550px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .consultCard {
+    right: 20px;
+    bottom: 40px;
+  }
+
+  .slider {
+    bottom: 90px;
+  }
+}

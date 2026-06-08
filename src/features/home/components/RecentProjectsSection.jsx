@@ -1,0 +1,64 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import styles from "./RecentProjectsSection.module.css";
+
+const cards = [
+  {
+    src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+    alt: "Botanik kitchen and restaurant",
+    title: "Botanik kitchen & restaurant",
+    desc: "Eco-friendly space fueled by the sun and enriched with nature.",
+    accent: true,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+    alt: "Prime edge business park",
+    title: "Prime edge business park",
+    desc: "It's an innovative business center created with a focus on sustainable development.",
+    accent: true,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    alt: "Renewasphere district",
+    title: "Renewasphere district",
+    desc: "A circular economy in action - fully recycled, fully renewable.",
+    accent: true,
+  },
+];
+
+export default function RecentProjectsSection() {
+  return (
+    <section className={styles.section}>
+      <div className={styles.header}>
+        <span className={styles.tag}>Recent Projects</span>
+        <h2 className={styles.title}>Redefining urban living</h2>
+      </div>
+
+      <div className={styles.grid}>
+        {cards.map((card) => (
+          <article key={card.title} className={styles.card}>
+            <Image src={card.src} alt={card.alt} width={800} height={240} className={styles.image} />
+            <div className={styles.body}>
+              {card.tags ? (
+                <div className={styles.tagsRow}>
+                  {card.tags.map((tag) => (
+                    <span key={`${card.title}-${tag.label}`} className={styles.chip}>
+                      {tag.icon ? tag.icon : null}
+                      {tag.label}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+              <h3>{card.title}</h3>
+              <p className={styles.desc}>{card.desc}</p>
+              <Link href="/" className={`${styles.viewBtn} ${card.accent ? styles.accent : ""}`}>
+                View Details <ArrowRight size={12} />
+              </Link>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
