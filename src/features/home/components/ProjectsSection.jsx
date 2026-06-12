@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./ProjectsSection.module.css";
 
@@ -19,6 +19,7 @@ const projects = [
     alt: "Maison Noire",
     title: "Maison Noire",
     location: "Oklahoma City, 2024",
+    badge: "For Rent",
     summary:
       "A refined modern retreat with strong geometry, grounded finishes, and a private layered facade.",
   },
@@ -27,14 +28,22 @@ const projects = [
     alt: "Villa Bellagio",
     title: "Villa Bellagio",
     location: "San Francisco, 2024",
+    badge: "Sold",
     summary:
       "Clean architecture, generous light, and a seamless indoor-outdoor connection define this villa.",
   },
 ];
 
+const ANIMATION_DURATION = 700;
+const SWIPE_THRESHOLD = 50;
+
 export default function ProjectsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState("next");
+  const [isAnimating, setIsAnimating] = useState(false);
+  const isAnimatingRef = useRef(false);
+  const touchStartXRef = useRef(0);
+  const touchEndXRef = useRef(0);
 
   const visibleProjects = [
     projects[activeIndex],
@@ -44,14 +53,59 @@ export default function ProjectsSection() {
   const featuredProject = visibleProjects[0];
   const secondaryProjects = visibleProjects.slice(1);
 
+  const goToProject = useCallback((index, nextDirection) => {
+    if (isAnimatingRef.current || index === activeIndex) {
+      return;
+    }
+
+    setDirection(nextDirection);
+    isAnimatingRef.current = true;
+    setIsAnimating(true);
+    setActiveIndex(index);
+  }, [activeIndex]);
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection("next");
-      setActiveIndex((current) => (current + 1) % projects.length);
+      if (!isAnimatingRef.current) {
+        goToProject((activeIndex + 1) % projects.length, "next");
+      }
     }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [activeIndex, goToProject]);
+
+  useEffect(() => {
+    if (!isAnimating) {
+      return undefined;
+    }
+
+    const timer = setTimeout(() => {
+      isAnimatingRef.current = false;
+      setIsAnimating(false);
+    }, ANIMATION_DURATION);
+
+    return () => clearTimeout(timer);
+  }, [activeIndex, isAnimating]);
+
+  const handleTouchStart = (event) => {
+    touchStartXRef.current = event.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (event) => {
+    touchEndXRef.current = event.changedTouches[0].screenX;
+
+    const diff = touchStartXRef.current - touchEndXRef.current;
+
+    if (Math.abs(diff) < SWIPE_THRESHOLD) {
+      return;
+    }
+
+    if (diff > 0 && activeIndex < projects.length - 1) {
+      goToProject(activeIndex + 1, "next");
+    } else if (diff < 0 && activeIndex > 0) {
+      goToProject(activeIndex - 1, "prev");
+    }
+  };
 
   return (
     <section className={styles.section}>
@@ -64,9 +118,18 @@ export default function ProjectsSection() {
       </div>
 
       <div className={styles.layout}>
-        <article className={`${styles.card} ${styles.featured}`}>
-          <span className={styles.cardBadge}>For Sale</span>
-          <div key={`featured-${activeIndex}`} className={`${styles.cardContent} ${styles.cardContentFeatured}`}>
+        <article
+          className={`${styles.card} ${styles.featured}`}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            key={`featured-${activeIndex}`}
+            className={`${styles.cardContent} ${styles.cardContentFeatured} ${
+              direction === "next" ? styles.cardEnterNext : styles.cardEnterPrev
+            }`}
+          >
+            <span className={styles.cardBadge}>{featuredProject.badge}</span>
             <div className={styles.imageWrap}>
               <Image
                 src={featuredProject.src}
@@ -84,12 +147,7 @@ export default function ProjectsSection() {
         </article>
 
         <div className={styles.sideRail}>
-          <div
-            key={activeIndex}
-            className={`${styles.summaryPanel} ${styles.cardContent} ${
-              direction === "next" ? styles.cardContentNext : styles.cardContentPrev
-            }`}
-          >
+          <div key={activeIndex} className={styles.summaryPanel}>
             <p
               className={`${styles.summaryText} ${
                 direction === "next" ? styles.summarySlideNext : styles.summarySlidePrev
@@ -101,8 +159,7 @@ export default function ProjectsSection() {
 
           <div className={styles.sideCards}>
             {secondaryProjects.map((project, index) => {
-              const motionClass =
-                direction === "next" ? styles.cardContentNext : styles.cardContentPrev;
+              const motionClass = direction === "next" ? styles.cardEnterNext : styles.cardEnterPrev;
 
               return (
                 <article key={index} className={styles.card}>

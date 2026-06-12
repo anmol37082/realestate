@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Phone, ArrowRight } from "lucide-react";
@@ -21,30 +21,110 @@ const slides = [
   },
 ];
 
+const SWAP_DURATION = 900;
+
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [incomingSlide, setIncomingSlide] = useState(null);
+  const [direction, setDirection] = useState("next");
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const isTransitioningRef = useRef(false);
+  const transitionTimerRef = useRef(null);
   const currentSlide = slides[activeSlide];
+  const nextSlide = incomingSlide === null ? null : slides[incomingSlide];
+
+  const finishTransition = useCallback((nextIndex) => {
+    setActiveSlide(nextIndex);
+    setIncomingSlide(null);
+    setIsTransitioning(false);
+    isTransitioningRef.current = false;
+  }, []);
+
+  const goToSlide = useCallback(
+    (nextIndex, nextDirection) => {
+      if (isTransitioningRef.current || nextIndex === activeSlide) {
+        return;
+      }
+
+      setDirection(nextDirection);
+      setIncomingSlide(nextIndex);
+      setIsTransitioning(true);
+      isTransitioningRef.current = true;
+
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+
+      transitionTimerRef.current = setTimeout(() => {
+        finishTransition(nextIndex);
+      }, SWAP_DURATION);
+    },
+    [activeSlide, finishTransition]
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goToSlide((activeSlide + 1) % slides.length, "next");
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [activeSlide, goToSlide]);
+
+  useEffect(
+    () => () => {
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+    },
+    []
+  );
 
   const goToPrevious = () => {
-    setActiveSlide((current) => (current === 0 ? slides.length - 1 : current - 1));
+    const nextIndex = activeSlide === 0 ? slides.length - 1 : activeSlide - 1;
+    goToSlide(nextIndex, "prev");
   };
 
   const goToNext = () => {
-    setActiveSlide((current) => (current === slides.length - 1 ? 0 : current + 1));
+    goToSlide((activeSlide + 1) % slides.length, "next");
   };
 
   return (
     <section className={styles.hero}>
       <div className={styles.media}>
-        <Image
-          key={currentSlide.src}
-          src={currentSlide.src}
-          alt={currentSlide.alt}
-          fill
-          priority
-          sizes="100vw"
-          className={styles.image}
-        />
+        <div
+          className={`${styles.imageLayer} ${styles.currentLayer} ${
+            isTransitioning
+              ? direction === "next"
+                ? styles.imageExitNext
+                : styles.imageExitPrev
+              : ""
+          }`}
+        >
+          <Image
+            src={currentSlide.src}
+            alt={currentSlide.alt}
+            fill
+            priority
+            sizes="100vw"
+            className={styles.image}
+          />
+        </div>
+        {nextSlide ? (
+          <div
+            className={`${styles.imageLayer} ${styles.incomingLayer} ${
+              direction === "next" ? styles.imageEnterNext : styles.imageEnterPrev
+            }`}
+          >
+            <Image
+              src={nextSlide.src}
+              alt={nextSlide.alt}
+              fill
+              priority
+              sizes="100vw"
+              className={styles.image}
+            />
+          </div>
+        ) : null}
       </div>
       <div className={styles.overlay} />
 

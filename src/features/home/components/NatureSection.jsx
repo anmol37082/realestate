@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
@@ -39,51 +39,181 @@ const natureSlides = [
   },
 ];
 
+const SWAP_DURATION = 900;
+
 export default function NatureSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [incomingIndex, setIncomingIndex] = useState(null);
+  const [direction, setDirection] = useState("next");
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const isTransitioningRef = useRef(false);
+  const transitionTimerRef = useRef(null);
   const activeSlide = natureSlides[activeIndex];
+  const incomingSlide = incomingIndex === null ? null : natureSlides[incomingIndex];
+
+  const finishTransition = useCallback((nextIndex) => {
+    setActiveIndex(nextIndex);
+    setIncomingIndex(null);
+    setIsTransitioning(false);
+    isTransitioningRef.current = false;
+  }, []);
+
+  const goToSlide = useCallback(
+    (nextIndex, nextDirection) => {
+      if (isTransitioningRef.current || nextIndex === activeIndex) {
+        return;
+      }
+
+      setDirection(nextDirection);
+      setIncomingIndex(nextIndex);
+      setIsTransitioning(true);
+      isTransitioningRef.current = true;
+
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+
+      transitionTimerRef.current = setTimeout(() => {
+        finishTransition(nextIndex);
+      }, SWAP_DURATION);
+    },
+    [activeIndex, finishTransition]
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goToSlide((activeIndex + 1) % natureSlides.length, "next");
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [activeIndex, goToSlide]);
+
+  useEffect(
+    () => () => {
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+    },
+    []
+  );
 
   const goToPrevious = () => {
-    setActiveIndex((current) => (current === 0 ? natureSlides.length - 1 : current - 1));
+    const nextIndex = activeIndex === 0 ? natureSlides.length - 1 : activeIndex - 1;
+    goToSlide(nextIndex, "prev");
   };
 
   const goToNext = () => {
-    setActiveIndex((current) => (current + 1) % natureSlides.length);
+    goToSlide((activeIndex + 1) % natureSlides.length, "next");
   };
 
   return (
     <section className={styles.section}>
       <div className={styles.media}>
-        <Image
-          key={activeSlide.image}
-          src={activeSlide.image}
-          alt={activeSlide.title}
-          fill
-          sizes="100vw"
-          className={styles.image}
-        />
+        <div
+          className={`${styles.imageLayer} ${styles.currentLayer} ${
+            isTransitioning
+              ? direction === "next"
+                ? styles.imageExitNext
+                : styles.imageExitPrev
+              : ""
+          }`}
+        >
+          <Image
+            src={activeSlide.image}
+            alt={activeSlide.title}
+            fill
+            sizes="100vw"
+            className={styles.image}
+          />
+        </div>
+        {incomingSlide ? (
+          <div
+            className={`${styles.imageLayer} ${styles.incomingLayer} ${
+              direction === "next" ? styles.imageEnterNext : styles.imageEnterPrev
+            }`}
+          >
+            <Image
+              src={incomingSlide.image}
+              alt={incomingSlide.title}
+              fill
+              sizes="100vw"
+              className={styles.image}
+            />
+          </div>
+        ) : null}
       </div>
       <div className={styles.overlay} />
 
       <div className={styles.location}>
-        <div className={styles.locTag}>
-          <MapPin size={12} />
-          {activeSlide.location}
+        <div
+          className={`${styles.locationLayer} ${
+            isTransitioning
+              ? direction === "next"
+                ? styles.locationExitNext
+                : styles.locationExitPrev
+              : ""
+          }`}
+        >
+          <div className={styles.locTag}>
+            <MapPin size={12} />
+            {activeSlide.location}
+          </div>
+          <h3>{activeSlide.title}</h3>
         </div>
-        <h3>{activeSlide.title}</h3>
+        {incomingSlide ? (
+          <div
+            className={`${styles.locationLayer} ${styles.locationIncoming} ${
+              direction === "next" ? styles.locationEnterNext : styles.locationEnterPrev
+            }`}
+          >
+            <div className={styles.locTag}>
+              <MapPin size={12} />
+              {incomingSlide.location}
+            </div>
+            <h3>{incomingSlide.title}</h3>
+          </div>
+        ) : null}
       </div>
 
-      <div key={activeSlide.title} className={styles.content}>
-        <span className={styles.tag}>{activeSlide.tag}</span>
-        <h2>{activeSlide.heading}</h2>
-        <div className={styles.buttons}>
-          <Link href="/" className={styles.btn}>
-            {activeSlide.primary}
-          </Link>
-          <Link href="/" className={styles.btn}>
-            {activeSlide.secondary} <ArrowRight size={12} />
-          </Link>
+      <div className={styles.content}>
+        <div
+          className={`${styles.contentLayer} ${
+            isTransitioning
+              ? direction === "next"
+                ? styles.contentExitNext
+                : styles.contentExitPrev
+              : ""
+          }`}
+        >
+          <span className={styles.tag}>{activeSlide.tag}</span>
+          <h2>{activeSlide.heading}</h2>
+          <div className={styles.buttons}>
+            <Link href="/" className={styles.btn}>
+              {activeSlide.primary}
+            </Link>
+            <Link href="/" className={styles.btn}>
+              {activeSlide.secondary} <ArrowRight size={12} />
+            </Link>
+          </div>
         </div>
+        {incomingSlide ? (
+          <div
+            className={`${styles.contentLayer} ${styles.contentIncoming} ${
+              direction === "next" ? styles.contentEnterNext : styles.contentEnterPrev
+            }`}
+          >
+            <span className={styles.tag}>{incomingSlide.tag}</span>
+            <h2>{incomingSlide.heading}</h2>
+            <div className={styles.buttons}>
+              <Link href="/" className={styles.btn}>
+                {incomingSlide.primary}
+              </Link>
+              <Link href="/" className={styles.btn}>
+                {incomingSlide.secondary} <ArrowRight size={12} />
+              </Link>
+            </div>
+          </div>
+        ) : null}
       </div>
 
       <div className={styles.slider}>

@@ -13,10 +13,36 @@
   inset: 0;
 }
 
+.imageLayer {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity, filter;
+}
+
+.currentLayer,
+.incomingLayer {
+  backface-visibility: hidden;
+}
+
 .image {
   object-fit: cover;
   object-position: center;
-  animation: fadeIn 0.5s ease;
+}
+
+.imageEnterNext {
+  animation: imageEnterNext 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.imageEnterPrev {
+  animation: imageEnterPrev 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.imageExitNext {
+  animation: imageExitNext 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.imageExitPrev {
+  animation: imageExitPrev 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .overlay {
@@ -29,8 +55,34 @@
 .content {
   position: relative;
   z-index: 2;
-  max-width: 480px;
-  animation: riseIn 0.55s ease;
+  width: min(100%, 480px);
+  min-height: 240px;
+}
+
+.contentLayer {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity, filter;
+}
+
+.contentIncoming {
+  pointer-events: none;
+}
+
+.contentEnterNext {
+  animation: contentEnterNext 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contentEnterPrev {
+  animation: contentEnterPrev 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contentExitNext {
+  animation: contentExitNext 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contentExitPrev {
+  animation: contentExitPrev 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .tag {
@@ -76,6 +128,34 @@
   z-index: 2;
   color: #fff;
   text-align: right;
+  width: min(100%, 240px);
+  min-height: 64px;
+}
+
+.locationLayer {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity, filter;
+}
+
+.locationIncoming {
+  pointer-events: none;
+}
+
+.locationEnterNext {
+  animation: locationEnterNext 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.locationEnterPrev {
+  animation: locationEnterPrev 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.locationExitNext {
+  animation: locationExitNext 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.locationExitPrev {
+  animation: locationExitPrev 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .locTag {
@@ -134,25 +214,171 @@
   letter-spacing: 1px;
 }
 
-@keyframes fadeIn {
+@keyframes imageEnterNext {
   from {
     opacity: 0;
-    transform: scale(1.02);
+    transform: scale(1.02) translateX(18px);
+    filter: blur(12px);
   }
+
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateX(0);
+    filter: blur(0);
   }
 }
 
-@keyframes riseIn {
+@keyframes imageEnterPrev {
+  from {
+    opacity: 0;
+    transform: scale(1.02) translateX(-18px);
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes imageExitNext {
+  from {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.99) translateX(-14px);
+    filter: blur(10px);
+  }
+}
+
+@keyframes imageExitPrev {
+  from {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.99) translateX(14px);
+    filter: blur(10px);
+  }
+}
+
+@keyframes contentEnterNext {
   from {
     opacity: 0;
     transform: translateY(18px);
+    filter: blur(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes contentEnterPrev {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes contentExitNext {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-14px);
+    filter: blur(8px);
+  }
+}
+
+@keyframes contentExitPrev {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-14px);
+    filter: blur(8px);
+  }
+}
+
+@keyframes locationEnterNext {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes locationEnterPrev {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes locationExitNext {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(6px);
+  }
+}
+
+@keyframes locationExitPrev {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(6px);
   }
 }
 
@@ -169,6 +395,10 @@
   .location,
   .slider {
     right: 20px;
+  }
+
+  .location {
+    min-height: 60px;
   }
 
   .counter {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -9,7 +9,6 @@ import styles from "./TestimonialsSection.module.css";
 const testimonials = [
   {
     mainSrc: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    floatingSrc: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
     alt: "Client testimonial one",
     name: "Gregg Bergstrom",
@@ -21,7 +20,6 @@ const testimonials = [
   },
   {
     mainSrc: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80",
-    floatingSrc: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
     alt: "Client testimonial two",
     name: "Ava Mitchell",
@@ -33,7 +31,6 @@ const testimonials = [
   },
   {
     mainSrc: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
-    floatingSrc: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
     alt: "Client testimonial three",
     name: "Noah Carter",
@@ -45,7 +42,6 @@ const testimonials = [
   },
   {
     mainSrc: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80",
-    floatingSrc: "https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=400&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
     alt: "Client testimonial four",
     name: "Sofia Lane",
@@ -57,7 +53,6 @@ const testimonials = [
   },
   {
     mainSrc: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
-    floatingSrc: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
     alt: "Client testimonial five",
     name: "Ethan Brooks",
@@ -69,29 +64,73 @@ const testimonials = [
   },
 ];
 
+const SWAP_DURATION = 900;
+
 export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [incomingIndex, setIncomingIndex] = useState(null);
   const [direction, setDirection] = useState("next");
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const isTransitioningRef = useRef(false);
+  const transitionTimerRef = useRef(null);
 
   const activeTestimonial = testimonials[activeIndex];
+  const incomingTestimonial =
+    incomingIndex === null ? null : testimonials[incomingIndex];
+
+  const finishTransition = useCallback((nextIndex) => {
+    setActiveIndex(nextIndex);
+    setIncomingIndex(null);
+    setIsTransitioning(false);
+    isTransitioningRef.current = false;
+  }, []);
+
+  const goToIndex = useCallback(
+    (nextIndex, nextDirection) => {
+      if (isTransitioningRef.current || nextIndex === activeIndex) {
+        return;
+      }
+
+      setDirection(nextDirection);
+      setIncomingIndex(nextIndex);
+      setIsTransitioning(true);
+      isTransitioningRef.current = true;
+
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+
+      transitionTimerRef.current = setTimeout(() => {
+        finishTransition(nextIndex);
+      }, SWAP_DURATION);
+    },
+    [activeIndex, finishTransition]
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection("next");
-      setActiveIndex((current) => (current + 1) % testimonials.length);
+      goToIndex((activeIndex + 1) % testimonials.length, "next");
     }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [activeIndex, goToIndex]);
+
+  useEffect(
+    () => () => {
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+    },
+    []
+  );
 
   const goToPrevious = () => {
-    setDirection("prev");
-    setActiveIndex((current) => (current === 0 ? testimonials.length - 1 : current - 1));
+    const nextIndex = activeIndex === 0 ? testimonials.length - 1 : activeIndex - 1;
+    goToIndex(nextIndex, "prev");
   };
 
   const goToNext = () => {
-    setDirection("next");
-    setActiveIndex((current) => (current + 1) % testimonials.length);
+    goToIndex((activeIndex + 1) % testimonials.length, "next");
   };
 
   return (
@@ -105,41 +144,70 @@ export default function TestimonialsSection() {
 
       <div className={styles.content}>
         <div className={styles.imageWrap}>
-          <Image
-            key={`main-${activeIndex}`}
-            src={activeTestimonial.mainSrc}
-            alt={activeTestimonial.alt}
-            width={800}
-            height={360}
-            className={`${styles.mainImage} ${
-              direction === "next" ? styles.imageNext : styles.imagePrev
+          <div
+            className={`${styles.imageLayer} ${styles.currentLayer} ${
+              isTransitioning
+                ? direction === "next"
+                  ? styles.imageExitNext
+                  : styles.imageExitPrev
+                : ""
             }`}
-          />
-          <div className={styles.floating}>
+          >
             <Image
-              key={`floating-${activeIndex}`}
-              src={activeTestimonial.floatingSrc}
+              src={activeTestimonial.mainSrc}
               alt={activeTestimonial.alt}
               fill
-              sizes="160px"
-              className={`${styles.floatingImage} ${
-                direction === "next" ? styles.imageNext : styles.imagePrev
-              }`}
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className={styles.mainImage}
+              priority
             />
           </div>
+          {incomingTestimonial ? (
+            <div
+              className={`${styles.imageLayer} ${styles.incomingLayer} ${
+                direction === "next" ? styles.imageEnterNext : styles.imageEnterPrev
+              }`}
+            >
+              <Image
+                src={incomingTestimonial.mainSrc}
+                alt={incomingTestimonial.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className={styles.mainImage}
+                priority
+              />
+            </div>
+          ) : null}
         </div>
 
         <div className={styles.text}>
-          <div
-            key={activeIndex}
-            className={`${styles.reviewCopy} ${
-              direction === "next" ? styles.reviewNext : styles.reviewPrev
-            }`}
-          >
-            <p>
-              <strong>Bricklane</strong> {activeTestimonial.text1}
-            </p>
-            <p>{activeTestimonial.text2}</p>
+          <div className={styles.reviewStack}>
+            <div
+              className={`${styles.reviewCopy} ${
+                isTransitioning
+                  ? direction === "next"
+                    ? styles.reviewExitNext
+                    : styles.reviewExitPrev
+                  : ""
+              }`}
+            >
+              <p>
+                <strong>Bricklane</strong> {activeTestimonial.text1}
+              </p>
+              <p>{activeTestimonial.text2}</p>
+            </div>
+            {incomingTestimonial ? (
+              <div
+                className={`${styles.reviewCopy} ${styles.reviewIncoming} ${
+                  direction === "next" ? styles.reviewEnterNext : styles.reviewEnterPrev
+                }`}
+              >
+                <p>
+                  <strong>Bricklane</strong> {incomingTestimonial.text1}
+                </p>
+                <p>{incomingTestimonial.text2}</p>
+              </div>
+            ) : null}
           </div>
 
           <div className={styles.author}>
