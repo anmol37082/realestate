@@ -36,7 +36,7 @@
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: #e85a2e;
+  border-color: var(--accent-solid);
   box-shadow: 0 14px 30px rgba(26, 26, 46, 0.08);
 }
 
@@ -96,7 +96,7 @@
 }
 
 .link:hover {
-  color: #e85a2e;
+  color: var(--accent-solid);
 }
 
 @media (max-width: 1024px) {

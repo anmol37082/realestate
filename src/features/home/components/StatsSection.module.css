@@ -24,7 +24,7 @@
   font-weight: 600;
   line-height: 1;
   margin-bottom: 10px;
-  color: #e85a2e;
+  color: var(--accent-solid);
 }
 
 .label {

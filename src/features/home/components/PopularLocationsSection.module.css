@@ -70,7 +70,7 @@
   top: 14px;
   right: 14px;
   z-index: 1;
-  background: #e85a2e;
+  background: var(--accent-solid);
   color: #fff;
   padding: 5px 12px;
   border-radius: 20px;

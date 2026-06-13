@@ -40,7 +40,7 @@
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: #e85a2e;
+  border-color: var(--accent-solid);
   box-shadow: 0 14px 30px rgba(26, 26, 46, 0.08);
 }
 
@@ -48,8 +48,8 @@
   width: 44px;
   height: 44px;
   border-radius: 6px;
-  border: 1px solid rgba(232, 90, 46, 0.25);
-  color: #e85a2e;
+  border: 1px solid rgba(224, 193, 90, 0.25);
+  color: var(--accent-solid);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +79,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #e85a2e;
+  color: var(--accent-solid);
   white-space: nowrap;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .link:hover {
-  color: #e85a2e;
+  color: var(--accent-solid);
 }
 
 @media (max-width: 1024px) {

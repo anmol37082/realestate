@@ -36,7 +36,7 @@
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: #e85a2e;
+  border-color: var(--accent-solid);
   box-shadow: 0 14px 30px rgba(26, 26, 46, 0.08);
 }
 
@@ -62,7 +62,7 @@
 
 .role {
   font-size: var(--text-subtitle-size);
-  color: #e85a2e;
+  color: var(--accent-solid);
   font-weight: 600;
   margin-bottom: 6px;
 }

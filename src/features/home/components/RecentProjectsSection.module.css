@@ -99,16 +99,16 @@
 }
 
 .accent {
-  background: #e85a2e;
+  background: var(--accent-solid);
   color: #fff;
-  border-color: #e85a2e;
+  border-color: var(--accent-solid);
 }
 
 .viewBtn:hover,
 .viewBtn:focus-visible {
-  background: #e85a2e;
+  background: var(--accent-solid);
   color: #fff;
-  border-color: #e85a2e;
+  border-color: var(--accent-solid);
 }
 
 @media (max-width: 1024px) {

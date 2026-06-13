@@ -196,8 +196,8 @@
 }
 
 .accent {
-  background: #e85a2e;
-  border-color: #e85a2e;
+  background: var(--accent-solid);
+  border-color: var(--accent-solid);
 }
 
 .counter {

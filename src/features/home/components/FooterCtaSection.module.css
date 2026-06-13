@@ -56,7 +56,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #e85a2e;
+  background: var(--accent-solid);
   color: #fff;
   padding: 10px 22px;
   border-radius: 3px;

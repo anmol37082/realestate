@@ -31,7 +31,7 @@ const locations = [
     count: "150+",
   },
   {
-    src: "https://images.unsplash.com/photo-1606293926075-69a00febf780?w=800&q=80",
+    src: "https://images.unsplash.com/photo-1595658658481-d53d3f999875?w=800&q=80",
     alt: "Hyderabad skyline",
     title: "Hyderabad",
     price: "Avg. Price: INR 90 L",

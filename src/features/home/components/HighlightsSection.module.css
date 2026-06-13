@@ -44,13 +44,13 @@
 .icon {
   width: 44px;
   height: 44px;
-  border: 1.5px solid #e85a2e;
   border-radius: 6px;
+  border: 1px solid rgba(224, 193, 90, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  color: #e85a2e;
+  margin-bottom: 18px;
+  color: var(--accent-solid);
 }
 
 .icon svg {

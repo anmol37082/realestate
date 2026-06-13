@@ -15,8 +15,8 @@
   margin-bottom: 14px;
   padding: 9px 15px;
   border-radius: 999px;
-  background: #f5f0ea;
-  color: #9f4f2d;
+  background: #f7f1d8;
+  color: var(--accent-solid);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -164,7 +164,7 @@
 }
 
 .location svg {
-  color: #ff6a2b;
+  color: var(--accent-solid);
   flex-shrink: 0;
 }
 
@@ -172,8 +172,8 @@
   flex-shrink: 0;
   padding: 9px 14px;
   border-radius: 999px;
-  background: #f3ece4;
-  color: #b15c35;
+  background: #f7f1d8;
+  color: var(--accent-solid);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -209,7 +209,7 @@
 
 .link:hover,
 .link:focus-visible {
-  color: #ff6a2b;
+  color: var(--accent-solid);
 }
 
 .navBtn {

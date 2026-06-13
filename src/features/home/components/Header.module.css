@@ -53,7 +53,7 @@
 }
 
 .contactBtn {
-  background: #e85a2e;
+  background: var(--accent-solid);
   color: #fff;
   padding: 10px 22px;
   border-radius: 3px;
@@ -145,7 +145,7 @@
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  background: #e85a2e;
+  background: var(--accent-solid);
   color: #fff;
   border-radius: 4px;
   font-size: 13px;

@@ -159,7 +159,7 @@
   position: absolute;
   right: 60px;
   bottom: 55px;
-  background: #e85a2e;
+  background: var(--accent-solid);
   padding: 18px 28px;
   display: flex;
   align-items: center;
