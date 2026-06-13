@@ -76,6 +76,15 @@ export default function ProjectSection() {
     setActiveIndex((nextIndex + projects.length) % projects.length);
   };
 
+  const handleCardClick = (index) => {
+    if (index === activeIndex) {
+      goNext();
+      return;
+    }
+
+    goToSlide(index);
+  };
+
   const goPrev = () => goToSlide(activeIndex - 1);
   const goNext = () => goToSlide(activeIndex + 1);
 
@@ -111,7 +120,12 @@ export default function ProjectSection() {
                 aria-hidden={!isActive}
                 style={{ "--offset": offset }}
               >
-                <div className={styles.media}>
+                <button
+                  type="button"
+                  className={styles.mediaButton}
+                  onClick={() => handleCardClick(index)}
+                  aria-label={`View ${project.title}`}
+                >
                   <Image
                     src={project.src}
                     alt={project.alt}
@@ -121,7 +135,7 @@ export default function ProjectSection() {
                   />
                   <div className={styles.overlay} />
                   <span className={styles.badge}>{project.type}</span>
-                </div>
+                </button>
 
                 <div className={styles.body}>
                   <div className={styles.metaRow}>
@@ -135,7 +149,7 @@ export default function ProjectSection() {
                   <h3>{project.title}</h3>
                   <p className={styles.details}>{project.details}</p>
 
-                  <Link href="/" className={styles.link}>
+                  <Link href="/" className={styles.link} onClick={(event) => event.stopPropagation()}>
                     View Project <ArrowRight size={14} />
                   </Link>
                 </div>

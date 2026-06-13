@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Phone, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import styles from "./Hero.module.css";
 
 const slides = [
@@ -129,7 +129,6 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <span className={styles.tag}>Signature home</span>
         <h1 className={styles.title}>
           Your high-end
           <br />
@@ -159,10 +158,6 @@ export default function Hero() {
         exceptional service.
       </div>
 
-      <div className={styles.consultCard}>
-        <Phone size={20} />
-        <span>Book a Consultation</span>
-      </div>
     </section>
   );
 }

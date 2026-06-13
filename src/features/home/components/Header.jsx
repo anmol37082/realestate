@@ -2,18 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import styles from "./Header.module.css";
 
 const leftLinks = [
   { label: "Projects", href: "/" },
-  { label: "Services", href: "/" },
+  { label: "Payment Plans", href: "/" },
   { label: "About Us", href: "/" },
 ];
 
 const rightLinks = [
-  { label: "Properties", href: "/" },
-  { label: "Loan", href: "/" },
+  { label: "Rare Number 3f4d55hes", href: "/" },
 ];
 
 const allLinks = [...leftLinks, ...rightLinks];
@@ -64,12 +63,8 @@ export default function Header() {
             {rightLinks.map((link) => (
               <Link key={link.label} href={link.href} className={styles.navLink}>
                 {link.label}
-                {link.label === "Properties" ? <ChevronDown className={styles.arrow} size={12} /> : null}
               </Link>
             ))}
-            <Link href="/" className={styles.contactBtn}>
-              Contact Us
-            </Link>
           </div>
         </nav>
       </div>
@@ -100,8 +95,14 @@ export default function Header() {
           className={`${styles.drawer} ${isDrawerOpen ? styles.drawerOpen : ""}`}
           onClick={(event) => event.stopPropagation()}
         >
-          <div className={styles.drawerHeader}>
-            <span className={styles.drawerTitle}>Menu</span>
+          <div className={styles.drawerTop}>
+            <div className={styles.drawerBrand}>
+              <span className={styles.drawerBrandMark}>B</span>
+              <div className={styles.drawerBrandCopy}>
+                <span className={styles.drawerBrandName}>BRICKLINE</span>
+                <span className={styles.drawerBrandTag}>Premium real estate</span>
+              </div>
+            </div>
             <button
               type="button"
               className={styles.drawerClose}
@@ -112,25 +113,29 @@ export default function Header() {
             </button>
           </div>
 
+          <div className={styles.drawerHeader}>
+            <span className={styles.drawerTitle}>Menu</span>
+          </div>
+
           <nav className={styles.drawerNav} aria-label="Mobile primary">
-            {allLinks.map((link) => (
+            {allLinks.map((link, index) => (
               <Link
                 key={link.label}
                 href={link.href}
                 className={styles.drawerLink}
                 onClick={() => setIsDrawerOpen(false)}
               >
-                {link.label}
-                {link.label === "Projects" || link.label === "Properties" ? (
-                  <ChevronDown size={14} />
-                ) : null}
+                <span className={styles.drawerLinkIndex}>{String(index + 1).padStart(2, "0")}</span>
+                <span className={styles.drawerLinkLabel}>{link.label}</span>
+                {link.label === "Projects" ? <ChevronDown size={14} /> : <ChevronRight size={14} className={styles.drawerLinkArrow} />}
               </Link>
             ))}
           </nav>
 
           <Link href="/" className={styles.drawerCta} onClick={() => setIsDrawerOpen(false)}>
-            Contact Us
+            Request Callback
           </Link>
+
         </aside>
       </div>
     </header>
