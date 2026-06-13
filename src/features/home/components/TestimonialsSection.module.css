@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-size: 42px;
+  font-size: var(--text-title-size);
   font-weight: 500;
   line-height: 1.1;
 }
@@ -115,7 +115,7 @@
 }
 
 .text p {
-  font-size: 15px;
+  font-size: var(--text-body-size);
   line-height: 1.8;
   color: #444;
   margin-bottom: 16px;
@@ -145,12 +145,12 @@
 }
 
 .authorInfo h4 {
-  font-size: 14px;
+  font-size: var(--text-card-title-size);
   font-weight: 600;
 }
 
 .authorInfo span {
-  font-size: 12px;
+  font-size: var(--text-subtitle-size);
   color: #888;
 }
 
@@ -205,10 +205,6 @@
     padding: 40px 20px;
   }
 
-  .title {
-    font-size: 32px;
-  }
-
   .header {
     flex-direction: column;
     align-items: flex-start;
@@ -235,12 +231,6 @@
 
   .reviewStack {
     min-height: 150px;
-  }
-
-  .text p {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 12px;
   }
 
   .author {

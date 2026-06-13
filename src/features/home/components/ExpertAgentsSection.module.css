@@ -9,14 +9,14 @@
 }
 
 .title {
-  font-size: 42px;
+  font-size: var(--text-title-size);
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: 8px;
 }
 
 .subtitle {
-  font-size: 14px;
+  font-size: var(--text-subtitle-size);
   color: #666;
 }
 
@@ -55,20 +55,20 @@
 }
 
 .body h3 {
-  font-size: 17px;
+  font-size: var(--text-card-title-size);
   font-weight: 600;
   margin-bottom: 6px;
 }
 
 .role {
-  font-size: 12px;
+  font-size: var(--text-subtitle-size);
   color: #e85a2e;
   font-weight: 600;
   margin-bottom: 6px;
 }
 
 .exp {
-  font-size: 12px;
+  font-size: var(--text-body-size);
   color: #666;
   margin-bottom: 16px;
 }
@@ -98,10 +98,6 @@
 @media (max-width: 768px) {
   .section {
     padding: 40px 20px;
-  }
-
-  .title {
-    font-size: 32px;
   }
 
   .grid {

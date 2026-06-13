@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-size: 42px;
+  font-size: var(--text-title-size);
   font-weight: 500;
   line-height: 1.1;
 }
@@ -59,13 +59,13 @@
 }
 
 .card h3 {
-  font-size: 17px;
+  font-size: var(--text-card-title-size);
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 12px;
+  font-size: var(--text-body-size);
   color: #777;
   line-height: 1.7;
   margin-bottom: 16px;
@@ -91,10 +91,6 @@
 @media (max-width: 768px) {
   .section {
     padding: 40px 20px;
-  }
-
-  .title {
-    font-size: 32px;
   }
 
   .header {

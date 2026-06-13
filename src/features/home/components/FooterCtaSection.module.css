@@ -13,7 +13,7 @@
 }
 
 .left h2 {
-  font-size: 42px;
+  font-size: var(--text-title-size);
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: 20px;
@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--text-subtitle-size);
   color: #555;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .right p {
-  font-size: 13px;
+  font-size: var(--text-body-size);
   color: #666;
   line-height: 1.7;
   margin-bottom: 20px;
@@ -60,7 +60,7 @@
   color: #fff;
   padding: 10px 22px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: var(--text-subtitle-size);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -70,10 +70,6 @@
   .section {
     padding: 40px 20px;
     flex-direction: column;
-  }
-
-  .left h2 {
-    font-size: 32px;
   }
 
   .right {

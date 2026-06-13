@@ -20,7 +20,7 @@
 }
 
 .value {
-  font-size: 42px;
+  font-size: var(--text-title-size);
   font-weight: 600;
   line-height: 1;
   margin-bottom: 10px;
@@ -28,7 +28,7 @@
 }
 
 .label {
-  font-size: 13px;
+  font-size: var(--text-subtitle-size);
   color: #666;
 }
 
