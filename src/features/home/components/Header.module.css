@@ -1,0 +1,187 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 60px;
+}
+
+.desktopNav {
+  display: block;
+}
+
+.mobileNav {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.navLeft,
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navLink {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.arrow {
+  font-size: 9px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.contactBtn {
+  background: #e85a2e;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.menuButton,
+.drawerClose {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 14, 28, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.drawerBackdropOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(86vw, 320px);
+  height: 100%;
+  background: rgba(10, 18, 34, 0.98);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: -16px 0 50px rgba(0, 0, 0, 0.25);
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawerTitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawerCta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  background: #e85a2e;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    background: rgba(9, 17, 32, 0.96);
+    backdrop-filter: blur(14px);
+    padding: 14px 16px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    font-size: 16px;
+    letter-spacing: 1.2px;
+  }
+
+  .menuButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}

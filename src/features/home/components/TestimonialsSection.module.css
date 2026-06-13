@@ -212,14 +212,53 @@
   .header {
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 28px;
+    gap: 12px;
+  }
+
+  .outlineBtn {
+    padding: 8px 16px;
+  }
+
+  .content {
+    margin-left: 0;
+    gap: 16px;
   }
 
   .imageWrap {
-    height: 280px;
+    height: 240px;
+  }
+
+  .text {
+    max-width: 100%;
   }
 
   .reviewStack {
-    min-height: 190px;
+    min-height: 150px;
+  }
+
+  .text p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .author {
+    margin-top: 12px;
+  }
+
+  .slider {
+    margin-top: 16px;
+    gap: 12px;
+  }
+
+  .sliderBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .track {
+    width: 120px;
   }
 }
 
