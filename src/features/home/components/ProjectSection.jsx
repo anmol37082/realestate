@@ -94,10 +94,10 @@ export default function ProjectSection() {
         <span className={styles.tag}>Projects</span>
         <h2 className={styles.title}>A Smart Investment Destination</h2>
         <div className={styles.subtitle}>
-          <p>
+          <p className={styles.subtitleLead}>
             Well-planned commercial spaces in a prime location with modern infrastructure and excellent future prospects.
           </p>
-          <p>Built to support growing businesses and provide valuable investment opportunities.</p>
+          <p className={styles.subtitleSupport}>Built to support growing businesses and provide valuable investment opportunities.</p>
         </div>
       </div>
 
