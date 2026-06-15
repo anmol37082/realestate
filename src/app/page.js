@@ -13,7 +13,6 @@ import NatureSection from "../features/home/components/NatureSection";
 import RecentProjectsSection from "../features/home/components/RecentProjectsSection";
 import StatsSection from "../features/home/components/StatsSection";
 import TestimonialsSection from "../features/home/components/TestimonialsSection";
-import WhyChooseUsSection from "../features/home/components/WhyChooseUsSection";
 
 export default function Home() {
   return (
@@ -24,7 +23,6 @@ export default function Home() {
       <HighlightsSection />
       <PropertyCategoriesSection />
       <FullScreenBannerSection />
-      <WhyChooseUsSection />
       <PopularLocationsSection />
       <ExpertAgentsSection />
       <RecentProjectsSection />

@@ -1,22 +1,22 @@
 import Link from "next/link";
-import { ArrowRight, Globe, House, Lock } from "lucide-react";
+import { ArrowRight, Building2, CarFront, MapPinned } from "lucide-react";
 import styles from "./HighlightsSection.module.css";
 
 const highlights = [
   {
-    icon: <House />,
-    title: "Anywhere feels like home",
-    text: "Every home is thoughtfully equipped for immediate comfort, offering a space where no detail is left to chance.",
+    icon: <MapPinned />,
+    title: "Prime Highway Location",
+    text: "Located on NH-205, offering excellent visibility and easy access for businesses.",
   },
   {
-    icon: <Lock />,
-    title: "Live securely without boundaries",
-    text: "Each residence is crafted to provide immediate comfort, where every element is purposefully chosen.",
+    icon: <CarFront />,
+    title: "Modern Facilities",
+    text: "Ample parking, EV charging stations, and thoughtfully planned infrastructure.",
   },
   {
-    icon: <Globe />,
-    title: "Just a click away the world",
-    text: "Step into a home where comfort greets you instantly and every detail reflects refined solid taste.",
+    icon: <Building2 />,
+    title: "Excellent Connectivity",
+    text: "Well connected to Chandigarh, Mohali, Kharar, Punjab, Haryana, and Himachal Pradesh.",
   },
 ];
 
@@ -24,7 +24,7 @@ export default function HighlightsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Outstanding highlights</h2>
+        <h2 className={styles.title}>Why Town Square is a Great Choice</h2>
         <Link href="/" className={styles.outlineBtn}>
           Get Started <ArrowRight size={14} />
         </Link>

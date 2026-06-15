@@ -1,40 +1,40 @@
 import { BadgeCheck, Headset, Landmark, ShieldCheck, Sparkles, Wallet } from "lucide-react";
-import styles from "./WhyChooseUsSection.module.css";
+import styles from "./WhyChooseUs.module.css";
 
 const items = [
   {
-    icon: <Landmark />,
+    icon: <Landmark size={22} />,
     title: "Trusted Agency",
     text: "A straightforward process backed by practical market knowledge and consistent follow-up.",
   },
   {
-    icon: <BadgeCheck />,
+    icon: <BadgeCheck size={22} />,
     title: "Verified Listings",
     text: "Selected properties with details that stay aligned with what buyers actually need to know.",
   },
   {
-    icon: <Wallet />,
+    icon: <Wallet size={22} />,
     title: "Best Prices",
     text: "Pricing and positioning that aim for value without unnecessary noise or hidden assumptions.",
   },
   {
-    icon: <Headset />,
+    icon: <Headset size={22} />,
     title: "24/7 Support",
     text: "Responsive help across the full buying and renting flow, not only when things are simple.",
   },
   {
-    icon: <ShieldCheck />,
+    icon: <ShieldCheck size={22} />,
     title: "Legal Assistance",
     text: "Clear handling of the documents and checkpoints that usually slow people down.",
   },
   {
-    icon: <Sparkles />,
+    icon: <Sparkles size={22} />,
     title: "Easy EMI",
     text: "Flexible finance guidance that keeps the experience grounded and usable.",
   },
 ];
 
-export default function WhyChooseUsSection() {
+export default function WhyChooseUs() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>

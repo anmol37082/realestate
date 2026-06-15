@@ -1,0 +1,139 @@
+.section {
+  padding: 60px;
+  background: #fff;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  background: #f7f1d8;
+  color: var(--accent-solid);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--text-title-size);
+  line-height: 0.96;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #6c6c6c;
+  font-size: var(--text-subtitle-size);
+  line-height: 1.7;
+}
+
+.list {
+  display: grid;
+  gap: 14px;
+  width: min(100%, 820px);
+  margin: 0 auto;
+}
+
+.item {
+  border: 1px solid #ece6e1;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(26, 26, 46, 0.04);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.item:hover {
+  box-shadow: 0 12px 30px rgba(26, 26, 46, 0.06);
+}
+
+.item[open] {
+  border-color: var(--accent-solid);
+}
+
+.item summary {
+  cursor: pointer;
+  padding: 20px 22px;
+  font-size: var(--text-card-title-size);
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1a1a1a;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+.item p {
+  margin: 0;
+  padding: 0 22px 22px;
+  color: #666;
+  font-size: var(--text-body-size);
+  line-height: 1.7;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f7f1d8;
+  color: var(--accent-solid);
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chevron {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f7f1d8;
+  color: var(--accent-solid);
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.item[open] .chevron {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 20px;
+  }
+
+  .item summary {
+    padding: 18px 20px;
+    font-size: var(--text-body-size);
+  }
+
+  .item p {
+    padding: 0 20px 20px;
+  }
+}

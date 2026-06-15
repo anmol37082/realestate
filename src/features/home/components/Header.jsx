@@ -8,11 +8,11 @@ import styles from "./Header.module.css";
 const leftLinks = [
   { label: "Projects", href: "/" },
   { label: "Payment Plans", href: "/" },
-  { label: "About Us", href: "/" },
+  { label: "contact us", href: "/contact" },
 ];
 
 const rightLinks = [
-  { label: "Rare Number 3f4d55hes", href: "/" },
+  { label: "Rare Number 3j4f9j8r8ugu8eru", href: "/" },
 ];
 
 const allLinks = [...leftLinks, ...rightLinks];
@@ -132,7 +132,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <Link href="/" className={styles.drawerCta} onClick={() => setIsDrawerOpen(false)}>
+          <Link href="/contact" className={styles.drawerCta} onClick={() => setIsDrawerOpen(false)}>
             Request Callback
           </Link>
 

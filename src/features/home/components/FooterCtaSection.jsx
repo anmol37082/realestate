@@ -6,23 +6,26 @@ export default function FooterCtaSection() {
   return (
     <section className={styles.section}>
       <div className={styles.left}>
-        <h2>A cleaner tomorrow starts from today - with zero pollution</h2>
+        <h2>A better business future starts here, Town Square Mohali on NH-205. Where growth, location, and opportunity come together.</h2>
         <div className={styles.badges}>
           <div className={styles.badge}>
             <CheckCheck />
-            We are working since 1990
+            350+ parking spaces for easy visits and smooth movement
           </div>
           <div className={styles.badge}>
             <CheckCheck />
-            You can call all latest support
+            8 Lakh+ nearby population for strong daily footfall
+          </div>
+          <div className={styles.badge}>
+            <CheckCheck />
+            All-in-one commercial hub, retail, food court, offices & more
           </div>
         </div>
       </div>
 
       <div className={styles.right}>
         <p>
-          Unlock the door to your future. Explore the best properties in town with trusted
-          experts by your side. Buy, sell, or invest - your journey starts here.
+          Step into better opportunities. Explore Town Square Mohali - your smart investment starts here.
         </p>
         <Link href="/" className={styles.contactBtn}>
           Contact Us <ArrowRight size={12} />

@@ -1,10 +1,10 @@
 import styles from "./StatsSection.module.css";
 
 const stats = [
-  { value: "2,500+", label: "Properties Sold" },
-  { value: "3,200+", label: "Happy Clients" },
-  { value: "25+", label: "Cities Covered" },
-  { value: "12+", label: "Awards Won" },
+  { value: "100%", label: "RERA + CLU Approved Development" },
+  { value: "350+", label: "Smartly Designed Parking Spaces" },
+  { value: "8 Lakh+", label: "Strong Residential Catchment Base" },
+  { value: "Unlimited", label: "Daily Highway Exposure & Footfall" },
 ];
 
 export default function StatsSection() {

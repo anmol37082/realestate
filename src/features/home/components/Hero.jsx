@@ -130,13 +130,10 @@ export default function Hero() {
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          Your high-end
-          <br />
-          Haven awaits
+          The Future of Commercial Excellence
         </h1>
         <p className={styles.description}>
-          Discover lavish interiors, curated design, premium amenities, and personalized
-          services that define an elevated lifestyle.
+          A premium commercial destination designed for business, lifestyle, and convenience.
         </p>
         <Link href="/" className={styles.primaryBtn}>
           Find Property <ArrowRight size={14} />
@@ -154,8 +151,8 @@ export default function Hero() {
       </div>
 
       <div className={styles.bottomText}>
-        Unlock the potential of real estate with strategic insights, innovative solutions, and
-        exceptional service.
+        Invest in a location that offers excellent visibility, strong customer footfall, and
+        long-term growth potential.
       </div>
 
     </section>

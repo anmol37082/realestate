@@ -5,8 +5,11 @@
 }
 
 .header {
-  margin-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  margin-bottom: 34px;
 }
 
 .title {
@@ -19,11 +22,21 @@
 .subtitle {
   font-size: var(--text-subtitle-size);
   color: #666;
+  line-height: 1.7;
+  max-width: 68ch;
+  margin-inline: auto;
+}
+
+/* Enable balancing where supported (Chrome 114+). Older browsers will ignore this. */
+@supports (text-wrap: balance) {
+  .subtitle {
+    text-wrap: balance;
+  }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -31,7 +44,11 @@
   background: #fff;
   border: 1px solid #ece6e1;
   border-radius: 6px;
-  padding: 22px 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -42,12 +59,14 @@
 }
 
 .icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid rgba(224, 193, 90, 0.25);
+  color: var(--accent-solid);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-solid);
   margin-bottom: 18px;
 }
 
@@ -59,7 +78,7 @@
 .card h3 {
   font-size: var(--text-card-title-size);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .card p {
@@ -70,16 +89,12 @@
 
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
   .section {
     padding: 40px 20px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
   }
 }

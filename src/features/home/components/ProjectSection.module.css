@@ -35,11 +35,18 @@
 }
 
 .subtitle {
+  display: grid;
+  gap: 10px;
   font-size: var(--text-subtitle-size);
   line-height: 1.7;
-  color: #6c6c6c;
-  max-width: 60ch;
+  color: #666;
+  max-width: 68ch;
   margin-inline: auto;
+  text-wrap: balance;
+}
+
+.subtitle p {
+  margin: 0;
 }
 
 .swiper {

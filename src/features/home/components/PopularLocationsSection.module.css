@@ -20,9 +20,20 @@
 }
 
 .subtitle {
+  display: grid;
+  gap: 10px;
   font-size: var(--text-subtitle-size);
   color: #666;
+  line-height: 1.7;
+  max-width: 68ch;
   margin-inline: auto;
+  text-wrap: balance;
+}
+
+.subtitleLead,
+.subtitleSupport {
+  margin: 0;
+  text-wrap: balance;
 }
 
 .grid {
