@@ -30,10 +30,19 @@
   text-wrap: balance;
 }
 
-.subtitleLead,
+.subtitleLead {
+  margin: 0;
+  text-wrap: balance;
+  line-height: 1.55;
+  color: #666;
+  font-weight: 500;
+}
+
 .subtitleSupport {
   margin: 0;
   text-wrap: balance;
+  line-height: 1.7;
+  color: #666;
 }
 
 .grid {

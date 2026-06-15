@@ -25,6 +25,7 @@
   line-height: 1.7;
   max-width: 68ch;
   margin-inline: auto;
+  text-wrap: balance;
 }
 
 /* Enable balancing where supported (Chrome 114+). Older browsers will ignore this. */
