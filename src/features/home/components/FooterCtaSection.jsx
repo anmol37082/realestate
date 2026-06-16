@@ -6,7 +6,10 @@ export default function FooterCtaSection() {
   return (
     <section className={styles.section}>
       <div className={styles.left}>
-        <h2>A better business future starts here, Town Square Mohali on NH-205. Where growth, location, and opportunity come together.</h2>
+        <h2 className={styles.heading}>
+          <span>A better business future starts here, Town Square Mohali on NH-205.</span>
+          <span className={styles.highlight}>Where growth, location, and opportunity come together.</span>
+        </h2>
         <div className={styles.badges}>
           <div className={styles.badge}>
             <CheckCheck />

@@ -29,9 +29,8 @@
 
 .header h2 {
   font-size: var(--text-title-size);
-  line-height: 0.96;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-weight: 500;
+  line-height: 1.1;
   margin: 0 0 12px;
 }
 
@@ -66,9 +65,7 @@
 
 .field span {
   font-size: var(--text-subtitle-size);
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .control {

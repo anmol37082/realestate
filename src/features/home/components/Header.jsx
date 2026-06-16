@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import styles from "./Header.module.css";
 
 const leftLinks = [
   { label: "Projects", href: "/" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Payment Plans", href: "/" },
   { label: "contact us", href: "/contact" },
 ];
@@ -19,6 +22,8 @@ const allLinks = [...leftLinks, ...rightLinks];
 
 export default function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const pathname = usePathname();
+  const isTransparentPage = pathname === "/";
 
   useEffect(() => {
     if (!isDrawerOpen) {
@@ -43,7 +48,7 @@ export default function Header() {
   }, [isDrawerOpen]);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isTransparentPage ? "" : styles.headerSolid}`}>
       <div className={styles.desktopNav}>
         <nav className={styles.navbar} aria-label="Primary">
           <div className={styles.navLeft}>
@@ -56,7 +61,7 @@ export default function Header() {
           </div>
 
           <Link href="/" className={styles.logo}>
-            BRICKLINE.
+            <Image src="/logo.png" alt="BRICKLINE" width={140} height={40} priority />
           </Link>
 
           <div className={styles.navRight}>
@@ -71,7 +76,7 @@ export default function Header() {
 
       <div className={styles.mobileNav}>
         <Link href="/" className={styles.logo}>
-          BRICKLINE.
+          <Image src="/logo.png" alt="BRICKLINE" width={140} height={40} />
         </Link>
         <button
           type="button"
@@ -97,11 +102,7 @@ export default function Header() {
         >
           <div className={styles.drawerTop}>
             <div className={styles.drawerBrand}>
-              <span className={styles.drawerBrandMark}>B</span>
-              <div className={styles.drawerBrandCopy}>
-                <span className={styles.drawerBrandName}>BRICKLINE</span>
-                <span className={styles.drawerBrandTag}>Premium real estate</span>
-              </div>
+              <Image src="/logo.png" alt="BRICKLINE" width={120} height={32} />
             </div>
             <button
               type="button"

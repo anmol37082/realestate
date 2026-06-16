@@ -26,9 +26,8 @@
 
 .grid h2 {
   font-size: var(--text-title-size);
-  line-height: 0.96;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  font-weight: 500;
   margin: 0 0 18px;
 }
 

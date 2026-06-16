@@ -1,5 +1,3 @@
-import FooterCtaSection from "../features/home/components/FooterCtaSection";
-import FooterSection from "../features/home/components/FooterSection";
 import BlogPreviewSection from "../features/home/components/BlogPreviewSection";
 import LeadPopup from "../features/home/components/LeadPopup";
 import Hero from "../features/home/components/Hero";
@@ -30,8 +28,6 @@ export default function Home() {
       <NatureSection />
       <TestimonialsSection />
       <BlogPreviewSection />
-      <FooterCtaSection />
-      <FooterSection />
     </main>
   );
 }

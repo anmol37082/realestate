@@ -20,6 +20,23 @@
   max-width: 22ch;
 }
 
+.heading {
+  font-size: var(--text-title-size);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 22ch;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlight {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
 .badges {
   display: flex;
   gap: 20px;

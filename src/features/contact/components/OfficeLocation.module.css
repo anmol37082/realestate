@@ -28,9 +28,8 @@
 
 .title {
   font-size: var(--text-title-size);
-  line-height: 0.96;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-weight: 500;
+  line-height: 1.1;
   margin-bottom: 12px;
 }
 

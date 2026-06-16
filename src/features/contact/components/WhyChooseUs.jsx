@@ -4,33 +4,33 @@ import styles from "./WhyChooseUs.module.css";
 const items = [
   {
     icon: <Landmark size={22} />,
-    title: "Trusted Agency",
-    text: "A straightforward process backed by practical market knowledge and consistent follow-up.",
+    title: "Prime NH-205 Location",
+    text: "Strategically located on Kharar–Landran Road with excellent highway visibility.",
   },
   {
     icon: <BadgeCheck size={22} />,
-    title: "Verified Listings",
-    text: "Selected properties with details that stay aligned with what buyers actually need to know.",
+    title: "Fully Approved Project",
+    text: "RERA Approved, CLU Approved, and supported by all required approvals for a secure investment.",
   },
   {
     icon: <Wallet size={22} />,
-    title: "Best Prices",
-    text: "Pricing and positioning that aim for value without unnecessary noise or hidden assumptions.",
+    title: "Strong Customer Base",
+    text: "Supported by nearby residential communities and daily highway traffic.",
   },
   {
     icon: <Headset size={22} />,
-    title: "24/7 Support",
-    text: "Responsive help across the full buying and renting flow, not only when things are simple.",
+    title: "Premium Commercial Spaces",
+    text: "Modern double-height showrooms designed for visibility and business success.",
   },
   {
     icon: <ShieldCheck size={22} />,
-    title: "Legal Assistance",
-    text: "Clear handling of the documents and checkpoints that usually slow people down.",
+    title: "Modern Infrastructure",
+    text: "350+ parking spaces, EV charging facilities, and quality amenities.",
   },
   {
     icon: <Sparkles size={22} />,
-    title: "Easy EMI",
-    text: "Flexible finance guidance that keeps the experience grounded and usable.",
+    title: "High Growth Potential",
+    text: "A promising investment opportunity with strong future appreciation prospects.",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function WhyChooseUs() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Why Choose Us</h2>
-        <p className={styles.subtitle}>What makes the service feel reliable and direct</p>
+        <h2 className={styles.title}>Why Invest in Town Square</h2>
+        <p className={styles.subtitle}>Strategic location and premium amenities for secure investment</p>
       </div>
 
       <div className={styles.grid}>

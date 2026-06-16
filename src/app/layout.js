@@ -1,26 +1,23 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import Header from "../features/home/components/Header";
+import FooterCtaSection from "../features/home/components/FooterCtaSection";
+import FooterSection from "../features/home/components/FooterSection";
 
 export const metadata = {
-  title: "BRICKLINE - Premium Real Estate",
-  description: "A premium real-estate landing page built with Next.js and Bootstrap.",
+  title: "Mohali Town Square",
+  description: "Premium Real Estate in Mohali",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+      <head></head>
       <body suppressHydrationWarning>
         <Header />
         {children}
+        <FooterCtaSection />
+        <FooterSection />
       </body>
     </html>
   );
