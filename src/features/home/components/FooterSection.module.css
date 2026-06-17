@@ -29,8 +29,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
   color: #555;
+}
+
+.social a svg {
+  width: 18px;
+  height: 18px;
 }
 
 .center {

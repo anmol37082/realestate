@@ -7,8 +7,8 @@ import OfficeLocation from "../../features/contact/components/OfficeLocation";
 import WhyChooseUs from "../../features/contact/components/WhyChooseUs";
 
 export const metadata = {
-  title: "Contact Us | Brickline Real Estate",
-  description: "Get in touch with Brickline for premium real estate guidance, project details, site visits, and investment support.",
+  title: "Contact Us | Mohali Town Square",
+  description: "Get in touch with Mohali Town Square for premium real estate guidance, project details, site visits, and investment support.",
 };
 
 export default function ContactPage() {

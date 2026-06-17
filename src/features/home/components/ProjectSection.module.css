@@ -49,7 +49,6 @@
   text-wrap: balance;
   line-height: 1.55;
   color: #666;
-  font-weight: 500;
 }
 
 .subtitleSupport {
@@ -66,7 +65,7 @@
 
 .stage {
   position: relative;
-  height: 560px;
+  height: 460px;
   perspective: 1800px;
   overflow: visible;
 }
@@ -93,7 +92,7 @@
 .mediaButton {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 220px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -223,7 +222,27 @@
   font-size: var(--text-body-size);
   line-height: 1.7;
   color: #6d6d6d;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.detailTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f7f1d8;
+  color: var(--accent-solid);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .link {
@@ -302,7 +321,7 @@
   }
 
   .stage {
-    height: 520px;
+    height: 430px;
   }
 
   .card {
@@ -320,7 +339,11 @@
   }
 
   .stage {
-    height: 470px;
+    height: 400px;
+  }
+
+  .mediaButton {
+    height: 200px;
   }
 
   .card {

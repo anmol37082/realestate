@@ -1,22 +1,10 @@
 import styles from "./CompanyStats.module.css";
 
 const stats = [
-  {
-    value: "1200+",
-    label: "Happy Clients",
-  },
-  {
-    value: "85+",
-    label: "Premium Projects",
-  },
-  {
-    value: "15+",
-    label: "Cities Covered",
-  },
-  {
-    value: "24/7",
-    label: "Support Access",
-  },
+  { value: "100%", label: "RERA + CLU Approved Development" },
+  { value: "350+", label: "Smartly Designed Parking Spaces" },
+  { value: "8 Lakh+", label: "Strong Residential Catchment Base" },
+  { value: "Unlimited", label: "Daily Highway Exposure & Footfall" },
 ];
 
 export default function CompanyStats() {

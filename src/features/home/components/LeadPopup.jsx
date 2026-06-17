@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { X, ArrowRight } from "lucide-react";
 import styles from "./LeadPopup.module.css";
 
+const interests = ["Buy Residential", "Rent Residential", "Commercial Property", "Investment Consultation", "Site Visit"];
+const budgets = ["Under 50 Lakh", "50 Lakh - 1 Cr", "1 Cr - 2 Cr", "2 Cr - 5 Cr", "5 Cr+"];
+
 export default function LeadPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -63,7 +66,7 @@ export default function LeadPopup() {
         {!showForm ? (
           <div className={styles.teaser}>
             <div className={styles.teaserVisual}>
-              <div className={styles.teaserBadge}>BRICKLINE</div>
+              <div className={styles.teaserBadge}>town sqare mohali</div>
               <h2>Premium spaces, curated for the right buyers</h2>
               <p>Explore exclusive listings, launch details, and payment-friendly opportunities.</p>
             </div>
@@ -89,30 +92,66 @@ export default function LeadPopup() {
             </div>
 
             <form className={styles.form} onSubmit={handleSubmit}>
-              <label className={styles.field}>
-                <span>Name <strong>*</strong></span>
-                <input type="text" name="name" placeholder="Enter Name" required />
-              </label>
+              <div className={styles.row}>
+                <label className={styles.field}>
+                  <span>Name <strong>*</strong></span>
+                  <input type="text" name="name" placeholder="Enter Name" required />
+                </label>
+                <label className={styles.field}>
+                  <span>Email</span>
+                  <input type="email" name="email" placeholder="Enter Email" />
+                </label>
+              </div>
 
-              <label className={styles.field}>
-                <span>Phone <strong>*</strong></span>
-                <div className={styles.phoneRow}>
-                  <span className={styles.countryCode}>+91</span>
-                  <input type="tel" name="phone" placeholder="Enter Phone" required />
-                </div>
-              </label>
+              <div className={styles.row}>
+                <label className={styles.field}>
+                  <span>Phone <strong>*</strong></span>
+                  <div className={styles.phoneRow}>
+                    <span className={styles.countryCode}>+91</span>
+                    <input type="tel" name="phone" placeholder="Enter Phone" required />
+                  </div>
+                </label>
+                <label className={styles.field}>
+                  <span>Interested In <strong>*</strong></span>
+                  <select name="interest" required defaultValue="">
+                    <option value="" disabled>
+                      Select an option
+                    </option>
+                    {interests.map((interest) => (
+                      <option key={interest} value={interest}>
+                        {interest}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
 
-              <label className={styles.field}>
-                <span>Email</span>
-                <input type="email" name="email" placeholder="Enter Email" />
-              </label>
+              <div className={styles.row}>
+                <label className={styles.field}>
+                  <span>Budget Range <strong>*</strong></span>
+                  <select name="budget" required defaultValue="">
+                    <option value="" disabled>
+                      Select budget
+                    </option>
+                    {budgets.map((budget) => (
+                      <option key={budget} value={budget}>
+                        {budget}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className={styles.field}>
+                  <span>Preferred Location <strong>*</strong></span>
+                  <input type="text" name="location" placeholder="City or locality" required />
+                </label>
+              </div>
 
-              <label className={styles.field}>
+              <label className={styles.fieldFull}>
                 <span>Message</span>
                 <textarea name="message" rows="5" placeholder="Enter your Message" />
               </label>
 
-              <div className={styles.actions}>
+              <div className={styles.buttonRow}>
                 <button type="button" className={styles.secondaryBtn} onClick={() => setShowForm(false)}>
                   Back
                 </button>

@@ -8,7 +8,6 @@ import PopularLocationsSection from "../features/home/components/PopularLocation
 import PropertyCategoriesSection from "../features/home/components/PropertyCategoriesSection";
 import FullScreenBannerSection from "../features/home/components/FullScreenBannerSection";
 import NatureSection from "../features/home/components/NatureSection";
-import RecentProjectsSection from "../features/home/components/RecentProjectsSection";
 import StatsSection from "../features/home/components/StatsSection";
 import TestimonialsSection from "../features/home/components/TestimonialsSection";
 
@@ -23,7 +22,6 @@ export default function Home() {
       <FullScreenBannerSection />
       <PopularLocationsSection />
       <ExpertAgentsSection />
-      <RecentProjectsSection />
       <StatsSection />
       <NatureSection />
       <TestimonialsSection />

@@ -15,7 +15,7 @@ const leftLinks = [
 ];
 
 const rightLinks = [
-  { label: "Rare Number 3j4f9j8r8ugu8eru", href: "/" },
+  { label: "Rera Number 3j4f9j8r8ugu8eru", href: "/" },
 ];
 
 const allLinks = [...leftLinks, ...rightLinks];
@@ -23,7 +23,7 @@ const allLinks = [...leftLinks, ...rightLinks];
 export default function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const pathname = usePathname();
-  const isTransparentPage = pathname === "/";
+  const isTransparentPage = pathname === "/" || pathname === "/contact";
 
   useEffect(() => {
     if (!isDrawerOpen) {
@@ -102,7 +102,7 @@ export default function Header() {
         >
           <div className={styles.drawerTop}>
             <div className={styles.drawerBrand}>
-              <Image src="/logo.png" alt="BRICKLINE" width={120} height={32} />
+              <Image src="/logo.png" alt="townseqare mohali logo" width={120} height={32} />
             </div>
             <button
               type="button"

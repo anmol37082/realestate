@@ -64,6 +64,11 @@ const galleryItems = [
     title: "Commercial Spaces",
   },
   {
+    src: "/banner1.webp",
+    alt: "Town Square Mohali commercial development",
+    title: "Town Square Mohali",
+  },
+  {
     src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80",
     alt: "Modern premium residence interior",
     title: "Premium Interiors",

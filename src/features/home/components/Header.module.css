@@ -277,12 +277,16 @@
 }
 
 @media (max-width: 768px) {
+   .header {
+    padding: 14px 8px;
+  }
+
   .headerSolid {
     position: relative;
     background: rgba(9, 17, 32, 0.96);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    padding: 14px 16px;
+    padding: 14px 8px;
   }
 
   .desktopNav {
@@ -294,6 +298,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    padding: 0 4px;
   }
 
   .logo {

@@ -52,9 +52,6 @@ export default function PopularLocationsSection() {
       <div className={styles.header}>
         <h2 className={styles.title}>Well-connected to Key Destinations</h2>
         <div className={styles.subtitle}>
-          <p className={styles.subtitleLead}>
-            Town Square enjoys a strategic location on NH-205, Kharar-Landran Road, Sector-127, Mohali.
-          </p>
           <p className={styles.subtitleSupport}>
             Easy access to major educational institutions, commercial hubs, and city landmarks keeps the location highly connected.
           </p>

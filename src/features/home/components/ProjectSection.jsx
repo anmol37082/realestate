@@ -9,43 +9,52 @@ import styles from "./ProjectSection.module.css";
 const projects = [
   {
     src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=1200&q=80",
-    alt: "Luxury apartment exterior",
-    title: "Skyline Residences",
-    type: "Luxury Apartments",
-    location: "Bandra West, Mumbai",
-    details: "42 units | rooftop lounge | city views",
+    alt: "Premium retail space exterior",
+    title: "PREMIUM RETAIL",
+    type: "Town Square",
+    location: "NH-205, Mohali",
+    details: "Premium retail outlets designed for brands, lifestyle stores and everyday shopping.",
+    tags: "Retail | Daily Needs | High Visibility",
   },
   {
     src: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1200&q=80",
-    alt: "Private home exterior",
-    title: "Courtyard Villas",
-    type: "Private Homes",
-    location: "Sector 62, Gurgaon",
-    details: "18 villas | green courts | gated community",
+    alt: "Modern office building exterior",
+    title: "MODERN OFFICES",
+    type: "Town Square",
+    location: "Sector-127, Mohali",
+    details:
+      "Contemporary office spaces crafted for productivity, growth and business success. ",
+       tags: "Offices | Professional Spaces | Growth Hub",
   },
   {
     src: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&q=80",
-    alt: "Commercial building exterior",
-    title: "Commerce District",
-    type: "Mixed-Use Hub",
-    location: "Outer Ring Road, Bangalore",
-    details: "12 suites | retail base | office floors",
+    alt: "Food court and cafe area exterior",
+    title: "FOOD COURT & CAFES",
+    type: "Town Square",
+    location: "Kharar–Landran Road",
+    details:
+      "A vibrant dining destination offering diverse food experiences and cafe spaces.",
+    tags: "Food Court | Cafes | Rooftop Garden",
   },
   {
     src: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80",
-    alt: "Modern premium residence",
-    title: "Aura Heights",
-    type: "Premium Living",
-    location: "Whitefield, Bangalore",
-    details: "28 units | sky deck | private concierge",
+    alt: "Entertainment zone interior",
+    title: "ENTERTAINMENT ZONE",
+    type: "Town Square",
+    location: "NH-205, Mohali",
+    details:
+      "Exciting entertainment spaces designed to create fun and engaging experiences. ",
+    tags: "Gaming | Leisure | Family Friendly",
   },
   {
     src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80",
-    alt: "Contemporary villa exterior",
-    title: "Olive Crest",
-    type: "Contemporary Villas",
-    location: "Koregaon Park, Pune",
-    details: "24 villas | private garden | calm streets",
+    alt: "Fitness and wellness space interior",
+    title: "FITNESS & WELLNESS",
+    type: "Town Square",
+    location: "Sector-127, Mohali",
+    details:
+      "A modern gymnasium designed for health, fitness and an active lifestyle.",
+    tags: "Gymnasium | Wellness | Active Living",
   },
 ];
 
@@ -93,11 +102,8 @@ export default function ProjectSection() {
       <div className={styles.header}>
         <span className={styles.tag}>Projects</span>
         <h2 className={styles.title}>A Smart Investment Destination</h2>
-        <div className={styles.subtitle}>
-          <p className={styles.subtitleLead}>
-            Well-planned commercial spaces in a prime location with modern infrastructure and excellent future prospects.
-          </p>
-          <p className={styles.subtitleSupport}>Built to support growing businesses and provide valuable investment opportunities.</p>
+<div className={styles.subtitle}>
+              <p className={styles.subtitleLead}>Well-planned commercial spaces in a prime location with modern infrastructure and excellent future prospects.</p>
         </div>
       </div>
 
@@ -150,9 +156,15 @@ export default function ProjectSection() {
                   </div>
 
                   <h3>{project.title}</h3>
-                  <p className={styles.details}>{project.details}</p>
+                   <p className={styles.details}>{project.details}</p>
 
-                  <Link href="/" className={styles.link} onClick={(event) => event.stopPropagation()}>
+                   <div className={styles.tagsRow}>
+                     {project.tags?.split(" | ").map((tag, i) => (
+                       <span key={i} className={styles.detailTag}>{tag}</span>
+                     ))}
+                   </div>
+
+                   <Link href="/" className={styles.link} onClick={(event) => event.stopPropagation()}>
                     View Project <ArrowRight size={14} />
                   </Link>
                 </div>
