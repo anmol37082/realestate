@@ -13,7 +13,7 @@ export default function FooterSection() {
     <footer className={styles.footer}>
       <div className={styles.logo}>TOWN SQUARE MOHALI</div>
       <div className={styles.social}>
-        <Link href="/" aria-label="Instagram">
+        <Link href="https://www.instagram.com/townsquaremohali/" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.004 132">
             <defs>
               <linearGradient id="b">
@@ -40,7 +40,7 @@ export default function FooterSection() {
             <path d="M17.89 0h88.9c8.85 0 16.1 7.24 16.1 16.1v90.68c0 8.85-7.24 16.1-16.1 16.1H16.1c-8.85 0-16.1-7.24-16.1-16.1v-88.9C0 8.05 8.05 0 17.89 0zM30.3 31.06H51l10.76 18.7 10.45-18.7h20.45L73.79 60.49l20.66 31.33H73.32L61.4 72.3 49.39 91.82H28.43l20.95-31.67L30.3 31.06z" fillRule="evenodd" clipRule="evenodd"/>
           </svg>
         </Link>
-        <Link href="/" aria-label="Facebook">
+        <Link href="https://www.facebook.com/profile.php?id=61590424266901" aria-label="Facebook">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 509.64">
             <rect fill="#0866FF" width="512" height="509.64" rx="115.612" ry="115.612"/>
             <path fill="#fff" d="M287.015 509.64h-92.858V332.805h-52.79v-78.229h52.79v-33.709c0-87.134 39.432-127.522 124.977-127.522 16.217 0 44.203 3.181 55.651 6.361v70.915c-6.043-.636-16.536-.953-29.576-.953-41.976 0-58.194 15.9-58.194 57.241v27.667h83.618l-14.365 78.229h-69.253V509.64z"/>

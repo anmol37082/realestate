@@ -10,7 +10,8 @@ const posts = [
     category: "Buying Guide",
     date: "June 10, 2026",
     read: "5 min read",
-    title: "5 Essential Tips for First-Time Home Buyers",
+    title: "A Place to Shop",
+    subtitle: "Discover spaces designed for retail.",
   },
   {
     src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
@@ -18,7 +19,8 @@ const posts = [
     category: "Investment",
     date: "May 28, 2026",
     read: "7 min read",
-    title: "Top 10 Investment Locations in India for 2026",
+    title: "A Place to Work",
+    subtitle: "Modern offices for growing businesses.",
   },
   {
     src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
@@ -26,7 +28,8 @@ const posts = [
     category: "Finance",
     date: "May 15, 2026",
     read: "4 min read",
-    title: "How to Get Home Loan Approval in 2026",
+    title: "A Place to Gather",
+    subtitle: "Food, lifestyle, and everyday convenience together.",
   },
 ];
 
@@ -51,6 +54,7 @@ export default function BlogPreviewSection() {
                 <span>{post.read}</span>
               </div>
               <h3>{post.title}</h3>
+              <p className={styles.subtitle}>{post.subtitle}</p>
               <Link href="/" className={styles.link}>
                 Read More <ArrowRight size={12} />
               </Link>

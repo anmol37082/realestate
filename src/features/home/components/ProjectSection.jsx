@@ -24,7 +24,7 @@ const projects = [
     location: "Sector-127, Mohali",
     details:
       "Contemporary office spaces crafted for productivity, growth and business success. ",
-       tags: "Offices | Professional Spaces | Growth Hub",
+       tags: "Offices | Pro Spaces | Growth Hub",
   },
   {
     src: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&q=80",

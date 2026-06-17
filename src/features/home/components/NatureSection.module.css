@@ -99,7 +99,14 @@
   font-size: var(--text-title-size);
   font-weight: 500;
   line-height: 1.1;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+}
+
+.subheading {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  opacity: 0.92;
 }
 
 .buttons {

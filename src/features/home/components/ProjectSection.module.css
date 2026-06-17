@@ -41,21 +41,27 @@
   color: #666;
   max-width: 68ch;
   margin-inline: auto;
-  text-wrap: balance;
 }
 
 .subtitleLead {
   margin: 0;
-  text-wrap: balance;
   line-height: 1.55;
   color: #666;
 }
 
 .subtitleSupport {
   margin: 0;
-  text-wrap: balance;
   line-height: 1.7;
   color: #666;
+}
+
+/* Use text-wrap: balance when supported (Chrome 114+). Provide graceful fallback for older browsers. */
+@supports (text-wrap: balance) {
+  .subtitle,
+  .subtitleLead,
+  .subtitleSupport {
+    text-wrap: balance;
+  }
 }
 
 .swiper {
@@ -213,8 +219,8 @@
 .body h3 {
   font-size: var(--text-card-title-size);
   line-height: 1;
-  font-weight: 500;
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   margin-bottom: 14px;
 }
 

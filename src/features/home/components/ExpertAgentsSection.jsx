@@ -33,8 +33,8 @@ export default function ExpertAgentsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Our Expert Agents</h2>
-        <p className={styles.subtitle}>Meet the professionals behind the listings</p>
+        <h2 className={styles.title}>Meet Our Team Page</h2>
+        <p className={styles.subtitle}>Our Trusted Advisors</p>
       </div>
 
       <div className={styles.grid}>

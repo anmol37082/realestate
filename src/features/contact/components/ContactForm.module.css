@@ -57,6 +57,12 @@
   gap: 16px;
 }
 
+/* Message ko full-width karna: ye tab apply hoga jab Message field single ho */
+.row > .field:has(textarea.control) {
+  grid-column: 1 / -1;
+}
+
+
 .field {
   display: grid;
   gap: 8px;

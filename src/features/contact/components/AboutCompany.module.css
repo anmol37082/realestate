@@ -1,4 +1,4 @@
-.section {
+ .section {
   padding: 60px;
   background: #fff;
 }
@@ -52,13 +52,34 @@
   margin: 0 0 16px;
 }
 
-.panel ul {
-  margin: 0;
-  padding-left: 18px;
+.whyItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
   color: #666;
   font-size: var(--text-body-size);
-  line-height: 1.7;
+  line-height: 1.6;
+  padding: 10px 0;
 }
+
+.whyIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 241, 216, 0.85);
+  font-size: 16px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .whyItem {
+    padding: 8px 0;
+  }
+}
+
 
 @media (max-width: 900px) {
   .grid {

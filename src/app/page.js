@@ -10,6 +10,7 @@ import FullScreenBannerSection from "../features/home/components/FullScreenBanne
 import NatureSection from "../features/home/components/NatureSection";
 import StatsSection from "../features/home/components/StatsSection";
 import TestimonialsSection from "../features/home/components/TestimonialsSection";
+import RecentProjectsSection from "../features/home/components/RecentProjectsSection";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <StatsSection />
       <NatureSection />
       <TestimonialsSection />
+      <RecentProjectsSection />
       <BlogPreviewSection />
     </main>
   );

@@ -5,26 +5,41 @@ export default function AboutCompany() {
     <section className={styles.section}>
       <div className={styles.grid}>
         <div>
-          <span className={styles.tag}>About Company</span>
-          <h2>Trusted real estate guidance for smarter decisions</h2>
-          <p>
-            Brickline helps buyers, investors, and businesses evaluate premium residential and commercial opportunities with clear information, market insight, and end-to-end support.
+          <span className={styles.tag}>About Town Square</span>
+          <h2>Where Every Day Brings New Opportunities</h2>
+          <p style={{ maxWidth: "560px" }}>
+            Town Square Mohali is a vibrant commercial destination where businesses,
+            shopping, dining, and everyday experiences come together. Designed to create a place people love to visit and businesses are proud to be part of.
           </p>
-          <p>
-            From first enquiry to site visit and final documentation, our team keeps the process transparent, responsive, and focused on your goals.
-          </p>
+
         </div>
 
         <div className={styles.panel}>
-          <h3>Our approach</h3>
-          <ul>
-            <li>Understand budget, location, timeline, and investment goals.</li>
-            <li>Shortlist verified properties with clear pricing and documents.</li>
-            <li>Arrange site visits and connect you with the right experts.</li>
-            <li>Support negotiations, paperwork, and possession-related steps.</li>
-          </ul>
+          <h3>Why Town Square</h3>
+          <div>
+            <div className={styles.whyItem}>
+              <span className={styles.whyIcon}>🛍️</span>
+              <span>Spaces for retail and offices.</span>
+            </div>
+            <div className={styles.whyItem}>
+              <span className={styles.whyIcon}>🍽️</span>
+              <span>A destination for food and entertainment.</span>
+            </div>
+            <div className={styles.whyItem}>
+              <span className={styles.whyIcon}>🏙️</span>
+              <span>Designed for convenience.</span>
+            </div>
+            <div className={styles.whyItem}>
+              <span className={styles.whyIcon}>✨</span>
+              <span>Made for today&apos;s lifestyle.</span>
+            </div>
+          </div>
+
         </div>
+
       </div>
+
     </section>
   );
 }
+

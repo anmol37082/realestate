@@ -2,40 +2,36 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./NatureSection.module.css";
 
 const natureSlides = [
   {
     image:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
-    location: "Arizona, United States",
-    title: "Stillwater Retreat",
-    tag: "Property spotlight",
-    heading: "Where every home lives in balance with nature",
-    primary: "4 BHK Rental",
-    secondary: "Find Property",
+    tag: "Prime Location",
+    heading: "Built for Business. Designed for Growth.",
+    subheading:
+      "Discover a commercial destination that brings together retail, office spaces, a food court, and lifestyle experiences.",
+   
   },
   {
     image:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=80",
-    location: "Bali, Indonesia",
-    title: "Palm Horizon Villa",
-    tag: "Featured banner",
-    heading: "Open-air living with calm views and clean lines",
-    primary: "Luxury Villas",
-    secondary: "Explore Homes",
+    tag: "Town Square Mohali",
+    heading: "More Than a Space. A Business Destination.",
+    subheading:
+      "A place where shopping, work, dining, and opportunities come together.",
+  
   },
   {
     image:
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80",
-    location: "Lake Tahoe, USA",
-    title: "Mountain Crest Residence",
-    tag: "Nature collection",
-    heading: "A private escape wrapped in trees, light, and silence",
-    primary: "Holiday Homes",
-    secondary: "View Details",
+    tag: "Welcome to Town Square",
+    heading: "Everything Your Business Needs, All in One Place",
+    subheading:
+      "Retail spaces, offices, food court, entertainment, and daily essentials under one roof.",
+   
   },
 ];
 
@@ -120,7 +116,7 @@ export default function NatureSection() {
         >
           <Image
             src={activeSlide.image}
-            alt={activeSlide.title}
+            alt={activeSlide.heading}
             fill
             sizes="100vw"
             className={styles.image}
@@ -134,7 +130,7 @@ export default function NatureSection() {
           >
             <Image
               src={incomingSlide.image}
-              alt={incomingSlide.title}
+              alt={incomingSlide.heading}
               fill
               sizes="100vw"
               className={styles.image}
@@ -143,37 +139,6 @@ export default function NatureSection() {
         ) : null}
       </div>
       <div className={styles.overlay} />
-
-      <div className={styles.location}>
-        <div
-          className={`${styles.locationLayer} ${
-            isTransitioning
-              ? direction === "next"
-                ? styles.locationExitNext
-                : styles.locationExitPrev
-              : ""
-          }`}
-        >
-          <div className={styles.locTag}>
-            <MapPin size={12} />
-            {activeSlide.location}
-          </div>
-          <h3>{activeSlide.title}</h3>
-        </div>
-        {incomingSlide ? (
-          <div
-            className={`${styles.locationLayer} ${styles.locationIncoming} ${
-              direction === "next" ? styles.locationEnterNext : styles.locationEnterPrev
-            }`}
-          >
-            <div className={styles.locTag}>
-              <MapPin size={12} />
-              {incomingSlide.location}
-            </div>
-            <h3>{incomingSlide.title}</h3>
-          </div>
-        ) : null}
-      </div>
 
       <div className={styles.content}>
         <div
@@ -187,14 +152,7 @@ export default function NatureSection() {
         >
           <span className={styles.tag}>{activeSlide.tag}</span>
           <h2>{activeSlide.heading}</h2>
-          <div className={styles.buttons}>
-            <Link href="/" className={styles.btn}>
-              {activeSlide.primary}
-            </Link>
-            <Link href="/" className={styles.btn}>
-              {activeSlide.secondary} <ArrowRight size={12} />
-            </Link>
-          </div>
+          <p className={styles.subheading}>{activeSlide.subheading}</p>
         </div>
         {incomingSlide ? (
           <div
@@ -204,14 +162,7 @@ export default function NatureSection() {
           >
             <span className={styles.tag}>{incomingSlide.tag}</span>
             <h2>{incomingSlide.heading}</h2>
-            <div className={styles.buttons}>
-              <Link href="/" className={styles.btn}>
-                {incomingSlide.primary}
-              </Link>
-              <Link href="/" className={styles.btn}>
-                {incomingSlide.secondary} <ArrowRight size={12} />
-              </Link>
-            </div>
+            <p className={styles.subheading}>{incomingSlide.subheading}</p>
           </div>
         ) : null}
       </div>

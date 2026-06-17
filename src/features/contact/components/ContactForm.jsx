@@ -3,16 +3,46 @@
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
 
+const SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL";
+
 const interests = ["Buy Residential", "Rent Residential", "Commercial Property", "Investment Consultation", "Site Visit"];
 const budgets = ["Under 50 Lakh", "50 Lakh - 1 Cr", "1 Cr - 2 Cr", "2 Cr - 5 Cr", "5 Cr+"];
 
 export default function ContactForm({ embedded = false, showHeader = true }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    setIsSubmitted(true);
-    event.currentTarget.reset();
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      interest: formData.get("interest"),
+      budget: formData.get("budget"),
+      location: formData.get("location"),
+      message: formData.get("message")
+    };
+    
+    setIsSubmitting(true);
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        event.currentTarget.reset();
+      }, 2000);
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (embedded) {
@@ -85,18 +115,20 @@ export default function ContactForm({ embedded = false, showHeader = true }) {
             </label>
           </div>
 
-          <label className={styles.field}>
-            <span>Message</span>
-            <textarea className={styles.control} name="message" rows="5" placeholder="Tell us more about your requirement" required />
-          </label>
+          <div className={styles.row}>
+            <label className={styles.field}>
+              <span>Message</span>
+              <textarea className={styles.control} name="message" rows="5" placeholder="Tell us more about your requirement" required />
+            </label>
+          </div>
 
-          <button type="submit" className={styles.submitBtn}>
-            Submit Enquiry
+          <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit Enquiry"}
           </button>
         </form>
       </div>
-    );
-  }
+      );
+    }
 
   return (
     <section id="contact-form" className={styles.section}>
@@ -166,16 +198,18 @@ export default function ContactForm({ embedded = false, showHeader = true }) {
             </label>
           </div>
 
-          <label className={styles.field}>
-            <span>Message</span>
-            <textarea className={styles.control} name="message" rows="5" placeholder="Tell us more about your requirement" required />
-          </label>
+          <div className={styles.row}>
+            <label className={styles.field}>
+              <span>Message</span>
+              <textarea className={styles.control} name="message" rows="5" placeholder="Tell us more about your requirement" required />
+            </label>
+          </div>
 
-          <button type="submit" className={styles.submitBtn}>
-            Submit Enquiry
+          <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit Enquiry"}
           </button>
         </form>
       </div>
     </section>
-  );
-}
+    );
+  }

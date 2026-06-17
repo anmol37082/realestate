@@ -7,9 +7,13 @@ import styles from "./LeadPopup.module.css";
 const interests = ["Buy Residential", "Rent Residential", "Commercial Property", "Investment Consultation", "Site Visit"];
 const budgets = ["Under 50 Lakh", "50 Lakh - 1 Cr", "1 Cr - 2 Cr", "2 Cr - 5 Cr", "5 Cr+"];
 
+const SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL";
+
 export default function LeadPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -47,9 +51,37 @@ export default function LeadPopup() {
     setShowForm(false);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    closePopup();
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      interest: formData.get("interest"),
+      budget: formData.get("budget"),
+      location: formData.get("location"),
+      message: formData.get("message")
+    };
+    
+    setIsSubmitting(true);
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      setIsSubmitted(true);
+      setTimeout(() => {
+        closePopup();
+        setIsSubmitted(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) {
@@ -91,7 +123,13 @@ export default function LeadPopup() {
               <p>We&apos;ll use your details to match you with the right projects and connect you quickly.</p>
             </div>
 
-            <form className={styles.form} onSubmit={handleSubmit}>
+            {isSubmitted ? (
+              <div className={styles.success}>
+                <strong>Thank you! Your enquiry has been received.</strong>
+                <span>Our team will contact you shortly.</span>
+              </div>
+            ) : (
+              <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.row}>
                 <label className={styles.field}>
                   <span>Name <strong>*</strong></span>
@@ -146,7 +184,7 @@ export default function LeadPopup() {
                 </label>
               </div>
 
-              <label className={styles.fieldFull}>
+<label className={styles.fieldFull}>
                 <span>Message</span>
                 <textarea name="message" rows="5" placeholder="Enter your Message" />
               </label>
@@ -155,11 +193,12 @@ export default function LeadPopup() {
                 <button type="button" className={styles.secondaryBtn} onClick={() => setShowForm(false)}>
                   Back
                 </button>
-                <button type="submit" className={styles.submitBtn}>
-                  Submit
+                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </form>
+            )}
           </div>
         )}
       </div>
