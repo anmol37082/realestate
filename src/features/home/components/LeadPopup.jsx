@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, ArrowRight } from "lucide-react";
+import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 import styles from "./LeadPopup.module.css";
 
 const interests = ["Buy Residential", "Rent Residential", "Commercial Property", "Investment Consultation", "Site Visit"];
 const budgets = ["Under 50 Lakh", "50 Lakh - 1 Cr", "1 Cr - 2 Cr", "2 Cr - 5 Cr", "5 Cr+"];
 
-const SCRIPT_URL =
-  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7RC6gk9pS7zGkhLxiD1-3wmIe16So2mH31ULirnrJBLL9UULfs9E3ozUz4JaEMw27/exec";
 
 export default function LeadPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,21 +72,16 @@ export default function LeadPopup() {
         );
       }
 
-      const res = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        mode: "no-cors"
       });
 
-      try {
-        await res.text();
-      } catch (_) {}
-
       setIsSubmitted(true);
-      setTimeout(() => {
-        closePopup();
-        setIsSubmitted(false);
-      }, 2000);
+      // Success message will stay open until user closes (X / Esc / Back)
+
     } catch (error) {
       console.error("Submission error:", error);
     } finally {
@@ -127,17 +121,29 @@ export default function LeadPopup() {
             </div>
           </div>
         ) : (
-          <div className={styles.formLayout}>
-            <div className={styles.formHeader}>
-              <h3>Tell us what you&apos;re looking for</h3>
-              <p>We&apos;ll use your details to match you with the right projects and connect you quickly.</p>
-            </div>
+          <div className={`${styles.formLayout} ${isSubmitted ? styles.formLayoutCentered : ""}`}>
+            {!isSubmitted && (
+              <div className={styles.formHeader}>
+                <h3>Tell Us What You Need</h3>
+                <p> Our team is here to help you explore the right space at
+            Town Square Mohali.</p>
+              </div>
+            )}
 
             {isSubmitted ? (
               <div className={styles.success}>
-                <strong>Thank you! Your enquiry has been received.</strong>
-                <span>Our team will contact you shortly.</span>
+                <div className={styles.successIcon}>
+                  <CheckCircle2 size={32} strokeWidth={2} />
+                </div>
+                <strong className={styles.successTitle}>Thank you!</strong>
+                <span className={styles.successMsg}>
+                  Your details have been received. Our team will review your requirements and reach out shortly with the best matching opportunities.
+                </span>
+                <button type="button" className={styles.successCloseBtn} onClick={closePopup}>
+                  Done
+                </button>
               </div>
+
             ) : (
               <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.row}>

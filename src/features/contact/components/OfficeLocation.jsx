@@ -11,7 +11,7 @@ export default function OfficeLocation() {
 
       <div className={styles.map}>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12849.9764326965!2d76.83299747852183!3d30.653646913169553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f95678db0d10f%3A0x2510bc474ebebd63!2z4KSH4KSu4KWH4KSc4KS_4KSoIOCkieCkuCDgpI_gpJXgpYfgpKHgpK7gpYAgLSDgpKzgpYfgpLjgpY3gpJ8g4KSh4KS_4KSc4KS_4KSf4KSyIOCkruCkvuCksOCljeCkleClh-Ckn-Ckv-CkguCklyB8IOCkl-CljeCksOCkvuCkq-Ckv-CkleCljeCkuCDgpKHgpL_gpJzgpL7gpIfgpKjgpL_gpILgpJcgfCDgpLXgpYDgpKHgpL_gpK_gpYsg4KSP4KSh4KS_4KSf4KS_4KSC4KSXIOCkh-CkguCkuOCljeCkn-ClgOCkn-CljeCkr-ClguCknyDgpIfgpKgg4KSa4KSC4KSh4KWA4KSX4KSi4KS8IHwg4KSq4KSC4KSa4KSV4KWB4KSy4KS-IHwg4KSu4KWL4KS54KS-4KSy4KWA!5e1!3m2!1shi!2sin!4v1781507135187!5m2!1shi!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1834.4578048860967!2d76.65057482249547!3d30.72351882474642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fefc9cdfbad61%3A0xaa60f0e786ebffb0!2z4KSf4KS-4KSJ4KSoIOCkuOCljeCkleCljeCkteCkvuCkr-CksCDgpK7gpYvgpLngpL7gpLLgpYA!5e0!3m2!1shi!2sin!4v1781770176447!5m2!1shi!2sin"
           width="600"
           height="450"
           style={{ border: 0 }}
@@ -24,3 +24,4 @@ export default function OfficeLocation() {
     </section>
   );
 }
+

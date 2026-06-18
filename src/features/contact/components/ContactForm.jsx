@@ -3,8 +3,7 @@
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
 
-const SCRIPT_URL =
-  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7RC6gk9pS7zGkhLxiD1-3wmIe16So2mH31ULirnrJBLL9UULfs9E3ozUz4JaEMw27/exec";
 
 const interests = [
   "Buy Residential",
@@ -52,19 +51,15 @@ export default function ContactForm() {
         );
       }
 
-      const res = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        // Keep CORS behavior permissive; Apps Script may not return CORS headers.
+        mode: "no-cors",
       });
-
-      // With Apps Script web apps, mode may still be restricted by CORS.
-      // We still try to parse response if accessible.
-      try {
-        await res.text();
-      } catch (_) {}
 
 
       setIsSubmitted(true);
@@ -166,7 +161,7 @@ export default function ContactForm() {
 
             <select
               name="budget"
-              required
+           
               defaultValue=""
               className={styles.control}
             >
@@ -188,7 +183,7 @@ export default function ContactForm() {
             <input
               type="text"
               name="location"
-              required
+              
               className={styles.control}
               placeholder="City or locality"
             />
@@ -202,7 +197,7 @@ export default function ContactForm() {
             <textarea
               name="message"
               rows={5}
-              required
+              
               className={styles.control}
               placeholder="Tell us more about your requirement"
             />
