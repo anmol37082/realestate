@@ -53,7 +53,7 @@ export default function PropertyCategoriesSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Property Categories Page</h2>
+        <h2 className={styles.title}>Featured Spaces </h2>
         <p className={styles.subtitle}>Spaces for Every Business Need</p>
       </div>
 

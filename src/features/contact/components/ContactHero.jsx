@@ -19,9 +19,9 @@ export default function ContactHero() {
       </div>
       <div className={styles.overlay} />
       <div className={styles.content}>
-        <span className={styles.tag}>Contact Brickline</span>
-        <h1>Let us help you find the right property</h1>
-        <p>Talk to our real estate advisors for project details, site visits, payment plans, and investment guidance.</p>
+        <span className={styles.tag}>Contact town sqare mohali</span>
+        <h1>Ready to Explore Town Square?</h1>
+        <p>Our team is here to help you with project details, space availability, and site visits.</p>
         <div className={styles.actions}>
           <Link href="#contact-form" className={styles.primaryBtn}>
             Send Enquiry

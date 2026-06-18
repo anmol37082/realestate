@@ -31,8 +31,8 @@ export default function RecentProjectsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <span className={styles.tag}>Recent Projects</span>
-        <h2 className={styles.title}>Redefining urban living</h2>
+        <span className={styles.tag}>Why Town Square?</span>
+        <h2 className={styles.title}>Everything that makes Town Square the right choice. </h2>
       </div>
 
       <div className={styles.grid}>

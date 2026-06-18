@@ -99,20 +99,19 @@ export default function LeadPopup() {
           <div className={styles.teaser}>
             <div className={styles.teaserVisual}>
               <div className={styles.teaserBadge}>town sqare mohali</div>
-              <h2>Premium spaces, curated for the right buyers</h2>
-              <p>Explore exclusive listings, launch details, and payment-friendly opportunities.</p>
+              <h2>Invest in the Future of Mohali</h2>
+              <p>Explore strategically located properties with strong appreciation potential, attractive payment plans, and exclusive pre-launch benefits.</p>
             </div>
 
             <div className={styles.teaserContent}>
-              <div className={styles.kicker}>Private access</div>
+              <div className={styles.kicker}>PREMIUM ACCESS </div>
               <h3>Get the latest property insights</h3>
               <p>
-                A quick form unlocks curated options, payment plan details, and a direct callback from
-                our team.
+               A quick form unlocks curated opportunities, pricing details, and a direct callback from our team.
               </p>
 
               <button type="button" className={styles.exploreBtn} onClick={() => setShowForm(true)}>
-                Explore Now <ArrowRight size={16} />
+               Explore Opportunities <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -136,8 +135,8 @@ export default function LeadPopup() {
                   <input type="text" name="name" placeholder="Enter Name" required />
                 </label>
                 <label className={styles.field}>
-                  <span>Email</span>
-                  <input type="email" name="email" placeholder="Enter Email" />
+                  <span>Email <strong>*</strong></span>
+                  <input type="email" name="email" placeholder="Enter Email" required />
                 </label>
               </div>
 
@@ -166,8 +165,8 @@ export default function LeadPopup() {
 
               <div className={styles.row}>
                 <label className={styles.field}>
-                  <span>Budget Range <strong>*</strong></span>
-                  <select name="budget" required defaultValue="">
+                  <span>Budget Range <strong></strong></span>
+                  <select name="budget"  defaultValue="">
                     <option value="" disabled>
                       Select budget
                     </option>
@@ -179,8 +178,8 @@ export default function LeadPopup() {
                   </select>
                 </label>
                 <label className={styles.field}>
-                  <span>Preferred Location <strong>*</strong></span>
-                  <input type="text" name="location" placeholder="City or locality" required />
+                  <span>Preferred Location <strong></strong></span>
+                  <input type="text" name="location" placeholder="City or locality"  />
                 </label>
               </div>
 

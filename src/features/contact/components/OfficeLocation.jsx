@@ -5,8 +5,8 @@ export default function OfficeLocation() {
     <section id="office-location" className={styles.section}>
       <div className={styles.header}>
         <span className={styles.tag}>Office Location</span>
-        <h2 className={styles.title}>Visit us in Chandigarh</h2>
-        <p className={styles.subtitle}>Schedule a meeting with our advisors and discuss your property requirements in person.</p>
+        <h2 className={styles.title}>Let&apos;s Meet at Town Square</h2>
+        <p className={styles.subtitle}>Schedule a site visit and discover spaces designed for your business. </p>
       </div>
 
       <div className={styles.map}>

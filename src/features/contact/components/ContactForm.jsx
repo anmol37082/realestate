@@ -3,18 +3,36 @@
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
 
-const SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL";
+const SCRIPT_URL =
+  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "";
 
-const interests = ["Buy Residential", "Rent Residential", "Commercial Property", "Investment Consultation", "Site Visit"];
-const budgets = ["Under 50 Lakh", "50 Lakh - 1 Cr", "1 Cr - 2 Cr", "2 Cr - 5 Cr", "5 Cr+"];
+const interests = [
+  "Buy Residential",
+  "Rent Residential",
+  "Commercial Property",
+  "Investment Consultation",
+  "Site Visit",
+];
 
-export default function ContactForm({ embedded = false, showHeader = true }) {
+const budgets = [
+  "Under 50 Lakh",
+  "50 Lakh - 1 Cr",
+  "1 Cr - 2 Cr",
+  "2 Cr - 5 Cr",
+  "5 Cr+",
+];
+
+export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+
+    const form = event.currentTarget;
+
+    const formData = new FormData(form);
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -22,194 +40,173 @@ export default function ContactForm({ embedded = false, showHeader = true }) {
       interest: formData.get("interest"),
       budget: formData.get("budget"),
       location: formData.get("location"),
-      message: formData.get("message")
+      message: formData.get("message"),
     };
-    
-    setIsSubmitting(true);
+
     try {
+      setIsSubmitting(true);
+
       await fetch(SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
       setIsSubmitted(true);
+
+      form.reset();
+
       setTimeout(() => {
         setIsSubmitted(false);
-        event.currentTarget.reset();
-      }, 2000);
+      }, 3000);
     } catch (error) {
-      console.error("Submission error:", error);
+      console.error("Submission Error:", error);
     } finally {
       setIsSubmitting(false);
     }
   }
 
-  if (embedded) {
-    return (
-      <div id="contact-form" className={styles.embedded}>
-        {showHeader ? (
-          <div className={styles.header}>
-            <span className={styles.tag}>Quick Enquiry</span>
-            <h2>Send us your requirement</h2>
-            <p>Tell us what you are looking for and our advisors will respond with the most relevant options.</p>
-          </div>
-        ) : null}
-
-        {isSubmitted ? (
-          <div className={styles.success}>
-            <strong>Thank you! Your enquiry has been received.</strong>
-            <span>Our team will contact you shortly.</span>
-          </div>
-        ) : null}
-
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Full Name</span>
-              <input className={styles.control} type="text" name="name" placeholder="Enter your name" required />
-            </label>
-            <label className={styles.field}>
-              <span>Email Address</span>
-              <input className={styles.control} type="email" name="email" placeholder="Enter your email" required />
-            </label>
-          </div>
-
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Phone Number</span>
-              <input className={styles.control} type="tel" name="phone" placeholder="Enter your phone number" required />
-            </label>
-            <label className={styles.field}>
-              <span>Interested In</span>
-              <select className={styles.control} name="interest" required defaultValue="">
-                <option value="" disabled>
-                  Select an option
-                </option>
-                {interests.map((interest) => (
-                  <option key={interest} value={interest}>
-                    {interest}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Budget Range</span>
-              <select className={styles.control} name="budget" required defaultValue="">
-                <option value="" disabled>
-                  Select budget
-                </option>
-                {budgets.map((budget) => (
-                  <option key={budget} value={budget}>
-                    {budget}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className={styles.field}>
-              <span>Preferred Location</span>
-              <input className={styles.control} type="text" name="location" placeholder="City or locality" required />
-            </label>
-          </div>
-
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Message</span>
-              <textarea className={styles.control} name="message" rows="5" placeholder="Tell us more about your requirement" required />
-            </label>
-          </div>
-
-          <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-          </button>
-        </form>
-      </div>
-      );
-    }
-
   return (
-    <section id="contact-form" className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.tag}>Quick Enquiry</span>
-          <h2>Tell us what you are looking for</h2>
-          <p>Share your requirement and our team will get back with the most relevant options.</p>
+    <>
+      {isSubmitted && (
+        <div className={styles.success}>
+          <strong>
+            Thank you! Your enquiry has been received.
+          </strong>
+
+          <span>
+            Our team will contact you shortly.
+          </span>
+        </div>
+      )}
+
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit}
+      >
+        <div className={styles.row}>
+          <label className={styles.field}>
+            <span>Full Name</span>
+
+            <input
+              type="text"
+              name="name"
+              required
+              className={styles.control}
+              placeholder="Enter your name"
+            />
+          </label>
+
+          <label className={styles.field}>
+            <span>Email Address</span>
+
+            <input
+              type="email"
+              name="email"
+              required
+              className={styles.control}
+              placeholder="Enter your email"
+            />
+          </label>
         </div>
 
-        {isSubmitted ? (
-          <div className={styles.success}>
-            <strong>Thank you! Your enquiry has been received.</strong>
-            <span>Our team will contact you shortly.</span>
-          </div>
-        ) : null}
+        <div className={styles.row}>
+          <label className={styles.field}>
+            <span>Phone Number</span>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Full Name</span>
-              <input className={styles.control} type="text" name="name" placeholder="Enter your name" required />
-            </label>
-            <label className={styles.field}>
-              <span>Email Address</span>
-              <input className={styles.control} type="email" name="email" placeholder="Enter your email" required />
-            </label>
-          </div>
+            <input
+              type="tel"
+              name="phone"
+              required
+              className={styles.control}
+              placeholder="Enter your phone number"
+            />
+          </label>
 
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Phone Number</span>
-              <input className={styles.control} type="tel" name="phone" placeholder="Enter your phone number" required />
-            </label>
-            <label className={styles.field}>
-              <span>Interested In</span>
-              <select className={styles.control} name="interest" required defaultValue="">
-                <option value="" disabled>
-                  Select an option
+          <label className={styles.field}>
+            <span>Interested In</span>
+
+            <select
+              name="interest"
+              required
+              defaultValue=""
+              className={styles.control}
+            >
+              <option value="" disabled>
+                Select an option
+              </option>
+
+              {interests.map((item) => (
+                <option key={item} value={item}>
+                  {item}
                 </option>
-                {interests.map((interest) => (
-                  <option key={interest} value={interest}>
-                    {interest}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+              ))}
+            </select>
+          </label>
+        </div>
 
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Budget Range</span>
-              <select className={styles.control} name="budget" required defaultValue="">
-                <option value="" disabled>
-                  Select budget
+        <div className={styles.row}>
+          <label className={styles.field}>
+            <span>Budget Range</span>
+
+            <select
+              name="budget"
+              required
+              defaultValue=""
+              className={styles.control}
+            >
+              <option value="" disabled>
+                Select budget
+              </option>
+
+              {budgets.map((item) => (
+                <option key={item} value={item}>
+                  {item}
                 </option>
-                {budgets.map((budget) => (
-                  <option key={budget} value={budget}>
-                    {budget}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className={styles.field}>
-              <span>Preferred Location</span>
-              <input className={styles.control} type="text" name="location" placeholder="City or locality" required />
-            </label>
-          </div>
+              ))}
+            </select>
+          </label>
 
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Message</span>
-              <textarea className={styles.control} name="message" rows="5" placeholder="Tell us more about your requirement" required />
-            </label>
-          </div>
+          <label className={styles.field}>
+            <span>Preferred Location</span>
 
-          <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-          </button>
-        </form>
-      </div>
-    </section>
-    );
-  }
+            <input
+              type="text"
+              name="location"
+              required
+              className={styles.control}
+              placeholder="City or locality"
+            />
+          </label>
+        </div>
+
+        <div className={styles.row}>
+          <label className={styles.field}>
+            <span>Message</span>
+
+            <textarea
+              name="message"
+              rows={5}
+              required
+              className={styles.control}
+              placeholder="Tell us more about your requirement"
+            />
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={styles.submitBtn}
+        >
+          {isSubmitting
+            ? "Submitting..."
+            : "Submit Enquiry"}
+        </button>
+      </form>
+    </>
+  );
+}

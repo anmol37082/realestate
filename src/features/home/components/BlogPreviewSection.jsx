@@ -37,8 +37,9 @@ export default function BlogPreviewSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Latest Insights</h2>
-        <p className={styles.subtitle}>Tips, guides, and market updates</p>
+        <h2 className={styles.title}>Every Space Has a Purpose</h2>
+        <p className={styles.subtitle}>Thoughtfully designed spaces where businesses grow, and people connect.
+</p>
       </div>
 
       <div className={styles.grid}>

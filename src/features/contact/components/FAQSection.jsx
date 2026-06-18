@@ -3,34 +3,45 @@ import styles from "./FAQSection.module.css";
 
 const faqs = [
   {
+    icon: <HelpCircle />,
+    question: "1. What makes Town Square different?",
+    answer: "It brings together retail, offices, dining, entertainment, and daily convenience in one destination.",
+  },
+  {
     icon: <Calendar />,
-    question: "How quickly will someone contact me after submitting the form?",
-    answer: "Our team reviews enquiries as soon as they come in and usually responds the same business day.",
+    question: "2. Is the project designed for everyday visitors?",
+    answer: "Yes, the project is planned to offer a convenient and enjoyable experience for visitors.",
   },
   {
     icon: <MessageCircle />,
-    question: "Can I book a site visit through this page?",
-    answer: "Yes. Mention your preferred project, location, and timing in the message field.",
+    question: "3. How can I book a site visit?",
+    answer: "Simply get in touch with our team, and we'll help you schedule a convenient site visit.",
   },
   {
     icon: <FileCheck />,
-    question: "Do you help with documentation and legal checks?",
-    answer: "Yes. Brickline supports document verification, legal coordination, and possession-related guidance.",
+    question: "4. Who can invest in Town Square?",
+    answer: "The project is suitable for business owners, retailers, entrepreneurs, and investors seeking commercial space.",
   },
   {
     icon: <HelpCircle />,
-    question: "Can I discuss investment options before choosing a property?",
-    answer: "Yes. Share your budget and investment goals, and our advisors will suggest suitable options.",
+    question: "5. Does the project offer office spaces?",
+    answer: "Yes, modern office spaces are available for professionals and businesses.",
+  },
+  {
+    icon: <Calendar />,
+    question: "6. Are retail showrooms available?",
+    answer: "Yes, the project includes premium retail showrooms designed for a wide range of businesses.",
   },
 ];
+
 
 export default function FAQSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
         <span className={styles.tag}>FAQ</span>
-        <h2 className={styles.title}>Common questions</h2>
-        <p className={styles.subtitle}>Quick answers to help you get started</p>
+        <h2 className={styles.title}>Everything You Need to Know</h2>
+        <p className={styles.subtitle}>Explore answers to help you understand Town Square Mohali better. </p>
       </div>
 
       <div className={styles.list}>
