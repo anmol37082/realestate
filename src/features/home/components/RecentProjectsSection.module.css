@@ -33,9 +33,14 @@
   line-height: 1.7;
   max-width: 68ch;
   margin-inline: auto;
-  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
+@supports (text-wrap: balance) {
+  .subtitle {
+    text-wrap: balance;
+  }
+}
 
 .grid {
   display: grid;

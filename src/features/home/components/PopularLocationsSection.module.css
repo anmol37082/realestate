@@ -27,12 +27,12 @@
   line-height: 1.7;
   max-width: 68ch;
   margin-inline: auto;
-  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .subtitleLead {
   margin: 0;
-  text-wrap: balance;
+  overflow-wrap: anywhere;
   line-height: 1.55;
   color: #666;
   font-weight: 500;
@@ -40,7 +40,7 @@
 
 .subtitleSupport {
   margin: 0;
-  text-wrap: balance;
+  overflow-wrap: anywhere;
   line-height: 1.7;
   color: #666;
 }
@@ -102,6 +102,14 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.4px;
+}
+
+@supports (text-wrap: balance) {
+  .subtitle,
+  .subtitleLead,
+  .subtitleSupport {
+    text-wrap: balance;
+  }
 }
 
 @media (max-width: 1024px) {

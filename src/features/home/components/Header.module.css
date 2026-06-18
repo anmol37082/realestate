@@ -175,9 +175,14 @@
   box-shadow: -26px 0 80px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  scrollbar-color: transparent transparent; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
+}
+
+@supports (scrollbar-width: none) {
+  .drawer {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+  }
 }
 
 .drawer::-webkit-scrollbar {
@@ -346,8 +351,9 @@
   .headerSolid {
     position: relative;
     background: rgba(9, 17, 32, 0.96);
+     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+   
     padding: 14px 8px;
   }
 
