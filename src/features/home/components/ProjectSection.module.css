@@ -348,24 +348,64 @@
     height: 400px;
   }
 
+  /* mobile: keep image + body spacing so cards don't overlap subtitle */
   .mediaButton {
-    height: 200px;
+    height: 220px;
   }
+
+  .stage {
+    height: 450px;
+  }
+
+
+
+  .body {
+    padding-top: 14px;
+    padding-bottom: 18px;
+  }
+
+  .body h3 {
+    margin-bottom: 8px;
+  }
+
+  .details {
+    margin-bottom: 12px;
+  }
+
+  .tagsRow {
+    margin-bottom: 10px;
+  }
+
 
   .card {
     width: min(82vw, 360px);
   }
 
-  .mediaButton {
-    height: 280px;
-  }
 
   .body {
     padding: 18px 18px 20px;
+  }
+
+  .body h3 {
+    margin-bottom: 10px;
+  }
+
+  .details {
+    margin-bottom: 16px;
+  }
+
+  .tagsRow {
+    margin-bottom: 14px;
   }
 
   .navBtn {
     width: 40px;
     height: 40px;
   }
+
+  .dots {
+    margin-top: 34px;
+  }
 }
+
+

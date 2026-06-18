@@ -163,8 +163,11 @@
   gap: 8px;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.formLayout::-webkit-scrollbar {
+  display: none;
 }
 
 .formLayoutCentered {
