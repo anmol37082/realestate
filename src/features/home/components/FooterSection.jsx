@@ -3,9 +3,10 @@ import styles from "./FooterSection.module.css";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Projects", href: "/" },
+  { label: "Projects", href: "/#projects" },
   { label: "Contact us", href: "/contact" },
 ];
+
 const legalLinks = ["Terms of Service", "Privacy Policy"];
 
 export default function FooterSection() {
@@ -57,7 +58,7 @@ export default function FooterSection() {
           </svg>
         </Link>
       </div>
-      <div className={styles.center}>© 2026 imazineus. All rights reserved.</div>
+      <div className={styles.center}>© 2026 designed by imazineus.</div>
       <div className={styles.nav}>
         {navLinks.map((link) => (
           <Link href={link.href} key={link.label}>
@@ -65,6 +66,7 @@ export default function FooterSection() {
           </Link>
         ))}
       </div>
+
       <div className={styles.links}>
         {legalLinks.map((link) => (
           <Link href="/" key={link}>

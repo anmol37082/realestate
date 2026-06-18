@@ -6,33 +6,36 @@ import styles from "./RecentProjectsSection.module.css";
 const cards = [
   {
     src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
-    alt: "Botanik kitchen and restaurant",
-    title: "Retail Excellence",
-    desc: "Smart commercial spaces designed for modern businesses.",
+    alt: "Retail space",
+    title: "A Place to Shop",
+    desc: "Discover spaces designed for retail.",
     accent: true,
   },
   {
     src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
-    alt: "Prime edge business park",
-    title: "Business Hub",
-    desc: "A destination where businesses can grow with confidence.",
+    alt: "Office space",
+    title: "A Place to Work",
+    desc: "Modern offices for growing businesses.",
     accent: true,
   },
   {
     src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-    alt: "Renewasphere district",
-    title: "Lifestyle Destination",
-    desc: "Bringing together shopping, dining, and convenience in one place.",
+    alt: "Community space",
+    title: "A Place to Gather",
+    desc: "Food, lifestyle, and everyday convenience together.",
     accent: true,
   },
 ];
+
 
 export default function RecentProjectsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <span className={styles.tag}>Why Town Square?</span>
-        <h2 className={styles.title}>Everything that makes Town Square the right choice. </h2>
+        <h2 className={styles.title}>Every Space Has a Purpose</h2>
+        <p className={styles.subtitle}>
+          Thoughtfully designed spaces where businesses grow, and people connect.
+        </p>
       </div>
 
       <div className={styles.grid}>

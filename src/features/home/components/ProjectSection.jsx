@@ -98,7 +98,8 @@ export default function ProjectSection() {
   const goNext = () => goToSlide(activeIndex + 1);
 
   return (
-    <section className={styles.section}>
+    <section id="projects" className={styles.section}>
+
       <div className={styles.header}>
         <span className={styles.tag}>Projects</span>
         <h2 className={styles.title}>A Smart Investment Destination</h2>
@@ -167,6 +168,8 @@ export default function ProjectSection() {
                    <Link href="/" className={styles.link} onClick={(event) => event.stopPropagation()}>
                     View Project <ArrowRight size={14} />
                   </Link>
+
+
                 </div>
               </article>
             );

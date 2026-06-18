@@ -8,11 +8,12 @@ import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import styles from "./Header.module.css";
 
 const leftLinks = [
-  { label: "Projects", href: "/" },
+  { label: "Projects", href: "/#projects" },
   { label: "Gallery", href: "/gallery" },
   { label: "Payment Plans", href: "/" },
   { label: "contact us", href: "/contact" },
 ];
+
 
 const rightLinks = [
   { label: "Rera Number 3j4f9j8r8ugu8eru", href: "/" },
@@ -133,11 +134,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <Link href="/contact" className={styles.drawerCta} onClick={() => setIsDrawerOpen(false)}>
-            Request Callback
-          </Link>
-
-        </aside>
+          </aside>
       </div>
     </header>
   );

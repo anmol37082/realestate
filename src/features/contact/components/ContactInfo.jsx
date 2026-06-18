@@ -7,7 +7,7 @@ const heroImage =
 
 export default function ContactInfo() {
   return (
-    <section className={styles.section}>
+    <section id="contact-info" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.content}>
           <span className={styles.tag}>Get In Touch</span>

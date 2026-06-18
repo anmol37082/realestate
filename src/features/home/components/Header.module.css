@@ -10,8 +10,9 @@
 .headerSolid {
   position: relative;
   background: rgba(9, 17, 32, 0.96);
-  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  
 }
 
 .desktopNav {
@@ -25,16 +26,47 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
+  position: relative;
 }
+
+.navLeft,
+.navRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navLeft {
+  left: 0;
+}
+
+.navRight {
+  right: 0;
+}
+
+
 
 .navLeft,
 .navRight {
   display: flex;
   align-items: center;
   gap: 28px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+.navLeft {
+  left: 0;
+}
+
+.navRight {
+  right: 0;
+}
+
+
 
 .navLink {
   color: #fff;
@@ -62,9 +94,21 @@
 }
 
 .logo :global(img) {
-  width: auto;
+  width: auto !important;
+  max-width: 100% !important;
   height: 42px;
   object-fit: contain;
+  display: block;
+}
+
+/* Next/Image can wrap the <img>. Prevent stretching via wrappers too */
+.logo :global(span),
+.logo :global(span > img) {
+  max-width: 100%;
+}
+
+.logo {
+  flex: 0 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -99,8 +143,9 @@
   position: fixed;
   inset: 0;
   background: rgba(2, 6, 12, 0.5);
+    -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease;
@@ -130,13 +175,16 @@
   box-shadow: -26px 0 80px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
 
 .drawer::-webkit-scrollbar {
   width: 0;
   height: 0;
+  display: none;
+  background: transparent;
 }
 
 .drawerOpen {
@@ -169,6 +217,20 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 0 0 auto;
+}
+
+.drawerBrand :global(img) {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.drawerBrand :global(span),
+.drawerBrand :global(span > img) {
+  max-width: 100%;
 }
 
 .drawerBrandMark {

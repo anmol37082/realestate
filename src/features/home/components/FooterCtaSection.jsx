@@ -7,7 +7,6 @@ export default function FooterCtaSection() {
     <section className={styles.section}>
       <div className={styles.left}>
         <h2 className={styles.heading}>
-         A better business future starts here. Where growth, location, and opportunity come together. 
         </h2>
         <div className={styles.badges}>
           <div className={styles.badge}>
@@ -29,9 +28,10 @@ export default function FooterCtaSection() {
         <p>
           Explore Town Square Mohali - your smart investment starts here.
         </p>
-        <Link href="/" className={styles.contactBtn}>
+        <Link href="/contact" className={styles.contactBtn}>
           Contact Us <ArrowRight size={12} />
         </Link>
+
       </div>
     </section>
   );
