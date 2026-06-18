@@ -7,7 +7,8 @@ import styles from "./LeadPopup.module.css";
 const interests = ["Buy Residential", "Rent Residential", "Commercial Property", "Investment Consultation", "Site Visit"];
 const budgets = ["Under 50 Lakh", "50 Lakh - 1 Cr", "1 Cr - 2 Cr", "2 Cr - 5 Cr", "5 Cr+"];
 
-const SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL";
+const SCRIPT_URL =
+  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "";
 
 export default function LeadPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,12 +67,22 @@ export default function LeadPopup() {
     
     setIsSubmitting(true);
     try {
-      await fetch(SCRIPT_URL, {
+      if (!SCRIPT_URL) {
+        throw new Error(
+          "Missing NEXT_PUBLIC_GOOGLE_SCRIPT_URL. Set it in client/.env.local"
+        );
+      }
+
+      const res = await fetch(SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
+
+      try {
+        await res.text();
+      } catch (_) {}
+
       setIsSubmitted(true);
       setTimeout(() => {
         closePopup();

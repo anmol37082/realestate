@@ -46,14 +46,26 @@ export default function ContactForm() {
     try {
       setIsSubmitting(true);
 
-      await fetch(SCRIPT_URL, {
+      if (!SCRIPT_URL) {
+        throw new Error(
+          "Missing NEXT_PUBLIC_GOOGLE_SCRIPT_URL. Set it in client/.env.local"
+        );
+      }
+
+      const res = await fetch(SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
+
+      // With Apps Script web apps, mode may still be restricted by CORS.
+      // We still try to parse response if accessible.
+      try {
+        await res.text();
+      } catch (_) {}
+
 
       setIsSubmitted(true);
 
