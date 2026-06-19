@@ -10,8 +10,8 @@ const posts = [
     category: "Buying Guide",
     date: "June 10, 2026",
     read: "5 min read",
-    title: "A Place to Shop",
-    subtitle: "Discover spaces designed for retail.",
+    title: "Top Benefits of Investing in Commercial Property in Mohali",
+    href: "/blog/investing-in-commercial-property-in-mohali",
   },
   {
     src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
@@ -19,8 +19,8 @@ const posts = [
     category: "Investment",
     date: "May 28, 2026",
     read: "7 min read",
-    title: "A Place to Work",
-    subtitle: "Modern offices for growing businesses.",
+    title: "Commercial Real Estate Trends in 2026",
+    href: "/blog/commercial-real-estate-trends-2026",
   },
   {
     src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
@@ -28,8 +28,8 @@ const posts = [
     category: "Finance",
     date: "May 15, 2026",
     read: "4 min read",
-    title: "A Place to Gather",
-    subtitle: "Food, lifestyle, and everyday convenience together.",
+    title: "5 Factors to Check Before Buying a Commercial Shop",
+    href: "/blog/five-factors-before-buying-a-commercial-shop",
   },
 ];
 
@@ -55,8 +55,7 @@ export default function BlogPreviewSection() {
                 <span>{post.read}</span>
               </div>
               <h3>{post.title}</h3>
-              <p className={styles.subtitle}>{post.subtitle}</p>
-              <Link href="/" className={styles.link}>
+              <Link href={post.href} className={styles.link}>
                 Read More <ArrowRight size={12} />
               </Link>
             </div>

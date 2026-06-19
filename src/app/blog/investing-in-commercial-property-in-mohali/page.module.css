@@ -1,0 +1,144 @@
+﻿.page {
+  position: relative;
+  padding: 72px 0 136px;
+  background:
+    radial-gradient(circle at top left, rgba(224, 193, 90, 0.12), transparent 26%),
+    radial-gradient(circle at top right, rgba(26, 26, 46, 0.03), transparent 24%),
+    linear-gradient(180deg, #f8f3ea 0%, #ffffff 44%, #ffffff 100%);
+  color: #1a1a1a;
+}
+
+.article {
+  width: 100%;
+  margin: 0;
+  padding: 0 clamp(22px, 5vw, 72px);
+  border: 0;
+  border-bottom: 1px solid rgba(232, 225, 219, 0.92);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.title {
+  margin: 28px auto 24px;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.08;
+  font-weight: 500;
+  color: #2b2418;
+  letter-spacing: -0.02em;
+  max-width: 30ch;
+  text-align: center;
+}
+
+.content {
+  display: grid;
+  gap: 18px;
+  font-size: 17px;
+  line-height: 1.88;
+  color: #2a2a2a;
+}
+
+.section {
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(232, 225, 219, 0.92);
+  background: #ffffff;
+}
+
+.section:nth-child(even) {
+  background: #ffffff;
+}
+
+.sectionHeading {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.sectionLabel {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a6d1f;
+}
+
+.highlight {
+  padding: 0 4px;
+  border-radius: 6px;
+  background: rgba(224, 193, 90, 0.18);
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.quote {
+  margin: 0;
+  color: #6a6259;
+}
+
+.quoteStrong {
+  margin: 0;
+  padding: 16px 18px;
+  border-left: 4px solid #e0c15a;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #faf8f2 0%, #fffdf8 100%);
+  color: #1f1f1f;
+  font-weight: 600;
+}
+
+.list {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 12px;
+  color: #2a2a2a;
+}
+
+.list li {
+  padding-left: 4px;
+}
+
+.footerGap {
+  height: 64px;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 28px 0 96px;
+  }
+
+  .article {
+    padding: 0 16px 22px;
+    border-bottom: 1px solid rgba(232, 225, 219, 0.92);
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    margin: 24px auto 18px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .content {
+    font-size: 16px;
+    gap: 14px;
+  }
+
+  .section {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .sectionHeading {
+    font-size: 21px;
+  }
+
+  .footerGap {
+    height: 48px;
+  }
+}

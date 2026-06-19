@@ -6,7 +6,9 @@ export default function FooterCtaSection() {
   return (
     <section className={styles.section}>
       <div className={styles.left}>
+        <p className={styles.kicker}>A better business future starts here.</p>
         <h2 className={styles.heading}>
+          Where growth, location, and opportunity come together.
         </h2>
         <div className={styles.badges}>
           <div className={styles.badge}>

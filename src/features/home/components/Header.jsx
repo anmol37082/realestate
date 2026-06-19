@@ -10,21 +10,38 @@ import styles from "./Header.module.css";
 const leftLinks = [
   { label: "Projects", href: "/#projects" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Payment Plans", href: "/" },
   { label: "contact us", href: "/contact" },
+];
+
+const paymentPlanItems = [
+  { label: "Booking 25%" },
+  {
+    label: "Construction 50%",
+    children: [
+      "25% after ground floor construction",
+      "25% after first floor",
+    ],
+  },
+  { label: "25% possession" },
 ];
 
 
 const rightLinks = [
-  { label: "Rera Number 3j4f9j8r8ugu8eru", href: "/" },
+  { label: "RERA NO: PBRERA-SAS80-PC0427-042026", href: "/" },
 ];
 
 const allLinks = [...leftLinks, ...rightLinks];
 
 export default function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isPaymentPlanOpen, setIsPaymentPlanOpen] = useState(false);
   const pathname = usePathname();
   const isTransparentPage = pathname === "/" || pathname === "/contact";
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+    setIsPaymentPlanOpen(false);
+  };
 
   useEffect(() => {
     if (!isDrawerOpen) {
@@ -36,7 +53,7 @@ export default function Header() {
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        setIsDrawerOpen(false);
+        closeDrawer();
       }
     };
 
@@ -59,6 +76,42 @@ export default function Header() {
                 {link.label === "Projects" ? <ChevronDown className={styles.arrow} size={12} /> : null}
               </Link>
             ))}
+            <div className={styles.dropdownWrap}>
+              <button
+                type="button"
+                className={styles.navLinkButton}
+                aria-expanded={isPaymentPlanOpen}
+                aria-controls="payment-plan-menu"
+                onClick={() => setIsPaymentPlanOpen((value) => !value)}
+              >
+                Payment Plans
+                <ChevronDown className={styles.arrow} size={12} />
+              </button>
+              <div
+                id="payment-plan-menu"
+                className={`${styles.dropdownPanel} ${isPaymentPlanOpen ? styles.dropdownPanelOpen : ""}`}
+                role="menu"
+                aria-hidden={!isPaymentPlanOpen}
+              >
+                <div className={styles.dropdownTitle}>Payment Plan</div>
+                <ul className={styles.dropdownList}>
+                  {paymentPlanItems.map((item) => (
+                    <li key={item.label} className={styles.dropdownItem}>
+                      {item.label}
+                      {item.children ? (
+                        <ul className={styles.dropdownSubList}>
+                          {item.children.map((child) => (
+                            <li key={child} className={styles.dropdownSubItem}>
+                              {child}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
           <Link href="/" className={styles.logo}>
@@ -94,7 +147,7 @@ export default function Header() {
       <div
         id="mobile-menu"
         className={`${styles.drawerBackdrop} ${isDrawerOpen ? styles.drawerBackdropOpen : ""}`}
-        onClick={() => setIsDrawerOpen(false)}
+        onClick={closeDrawer}
         aria-hidden={!isDrawerOpen}
       >
         <aside
@@ -109,7 +162,7 @@ export default function Header() {
               type="button"
               className={styles.drawerClose}
               aria-label="Close menu"
-              onClick={() => setIsDrawerOpen(false)}
+              onClick={closeDrawer}
             >
               <X size={20} />
             </button>
@@ -125,16 +178,47 @@ export default function Header() {
                 key={link.label}
                 href={link.href}
                 className={styles.drawerLink}
-                onClick={() => setIsDrawerOpen(false)}
+                onClick={closeDrawer}
               >
                 <span className={styles.drawerLinkIndex}>{String(index + 1).padStart(2, "0")}</span>
                 <span className={styles.drawerLinkLabel}>{link.label}</span>
                 {link.label === "Projects" ? <ChevronDown size={14} /> : <ChevronRight size={14} className={styles.drawerLinkArrow} />}
               </Link>
             ))}
+            <button
+              type="button"
+              className={styles.drawerDropdownTrigger}
+              aria-expanded={isPaymentPlanOpen}
+              aria-controls="mobile-payment-plan"
+              onClick={() => setIsPaymentPlanOpen((value) => !value)}
+            >
+              <span className={styles.drawerLinkIndex}>{String(allLinks.length + 1).padStart(2, "0")}</span>
+              <span className={styles.drawerLinkLabel}>Payment Plans</span>
+              <ChevronDown size={14} className={isPaymentPlanOpen ? styles.drawerLinkArrowOpen : styles.drawerLinkArrow} />
+            </button>
+            <div
+              id="mobile-payment-plan"
+              className={`${styles.drawerDropdown} ${isPaymentPlanOpen ? styles.drawerDropdownOpen : ""}`}
+              aria-hidden={!isPaymentPlanOpen}
+            >
+              {paymentPlanItems.map((item) => (
+                <div key={item.label} className={styles.drawerDropdownItem}>
+                  {item.label}
+                  {item.children ? (
+                    <div className={styles.drawerDropdownSubList}>
+                      {item.children.map((child) => (
+                        <div key={child} className={styles.drawerDropdownSubItem}>
+                          {child}
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
           </nav>
 
-          </aside>
+        </aside>
       </div>
     </header>
   );
