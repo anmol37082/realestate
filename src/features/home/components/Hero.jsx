@@ -19,20 +19,6 @@ export default function Hero() {
       </div>
       <div className={styles.overlay} />
 
-      <div className={styles.content}>
-        <h1 className={styles.title}>
-          The Future of Commercial Excellence
-        </h1>
-        <p className={styles.description}>
-          A premium commercial destination designed for business, lifestyle, and convenience.
-        </p>
-      </div>
-
-      <div className={styles.bottomText}>
-        Invest in a location that offers excellent visibility, strong customer footfall, and
-        long-term growth potential.
-      </div>
-
     </section>
   );
 }

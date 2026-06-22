@@ -18,11 +18,11 @@ const paymentPlanItems = [
   {
     label: "Construction 50%",
     children: [
-      "25% after ground floor construction",
-      "25% after first floor",
+      "25% After ground floor construction",
+      "25% After first floor",
     ],
   },
-  { label: "25% possession" },
+  { label: "25% Possession" },
 ];
 
 

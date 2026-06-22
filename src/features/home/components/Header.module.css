@@ -201,7 +201,7 @@
 .logo :global(img) {
   width: auto !important;
   max-width: 100% !important;
-  height: 48px;
+  height: 72px;
   object-fit: contain;
   display: block;
 }

@@ -41,12 +41,12 @@
 
 .title {
   margin: 0;
-  max-width: 14ch;
+  max-width: 18ch;
   font-family: var(--font-heading);
-  font-size: clamp(44px, 6vw, 76px);
-  line-height: 0.95;
+  font-size: var(--text-title-size);
+  line-height: 1.08;
   font-weight: 500;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
 }
@@ -54,8 +54,8 @@
 .subtitle {
   max-width: 72ch;
   margin: 16px 0 0;
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.65;
   color: #5f5850;
   position: relative;
   z-index: 1;
@@ -128,7 +128,7 @@
 .cardBody p {
   margin: 0;
   color: #5f5850;
-  line-height: 1.75;
+  line-height: 1.62;
 }
 
 .readMore {
@@ -168,7 +168,7 @@
   border-radius: 22px;
   background: linear-gradient(180deg, #fffdf8 0%, #ffffff 100%);
   color: #4f4942;
-  line-height: 1.8;
+  line-height: 1.65;
 }
 
 .asideLabel {
@@ -198,11 +198,12 @@
 
   .title {
     max-width: none;
-    font-size: clamp(34px, 11vw, 58px);
+    font-size: clamp(32px, 9vw, 42px);
   }
 
   .subtitle {
     font-size: 16px;
+    line-height: 1.65;
   }
 
   .grid {
@@ -211,6 +212,7 @@
 
   .cardBody h2 {
     font-size: 22px;
+    line-height: 1.2;
   }
 
   .aside {
