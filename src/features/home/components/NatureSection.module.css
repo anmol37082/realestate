@@ -1,16 +1,34 @@
 .section {
   position: relative;
-  height: 480px;
   display: flex;
-  align-items: center;
-  padding: 0 60px;
+  align-items: stretch;
+  padding: 0;
   overflow: hidden;
   color: #fff;
+
+
+  /* Container height should be content-driven */
+  height: auto;
+  min-height: 480px;
+  aspect-ratio: 4 / 3;
+}
+
+/* Make media take the section height */
+.section .media {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .media {
   position: absolute;
   inset: 0;
+}
+
+/* Next/Image (fill) uses its parent as height reference */
+.media {
+  height: 100%;
 }
 
 .imageLayer {
@@ -28,6 +46,8 @@
   object-fit: cover;
   object-position: center;
 }
+
+
 
 .imageEnterNext {
   animation: imageEnterNext 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -48,9 +68,10 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.15);
   z-index: 1;
 }
+
 
 .content {
   position: relative;

@@ -5,21 +5,21 @@ import styles from "./RecentProjectsSection.module.css";
 
 const cards = [
   {
-    src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+    src: "/purpose/APlacetoShop.webp",
     alt: "Retail space",
     title: "A Place to Shop",
     desc: "Discover spaces designed for retail.",
     accent: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+    src: "/purpose/APlacetowork.webp",
     alt: "Office space",
     title: "A Place to Work",
     desc: "Modern offices for growing businesses.",
     accent: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    src: "/purpose/APlacetogather.webp",
     alt: "Community space",
     title: "A Place to Gather",
     desc: "Food, lifestyle, and everyday convenience together.",

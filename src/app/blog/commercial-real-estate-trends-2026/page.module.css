@@ -1,91 +1,26 @@
-.page {
+﻿.page {
   position: relative;
-  padding: 56px 20px 88px;
+  padding: 72px 0 136px;
   background:
-    radial-gradient(circle at top left, rgba(224, 193, 90, 0.14), transparent 26%),
-    radial-gradient(circle at top right, rgba(26, 26, 46, 0.04), transparent 24%),
-    linear-gradient(180deg, #f7f2e8 0%, #fcfbf7 18%, #ffffff 56%);
+    radial-gradient(circle at top left, rgba(224, 193, 90, 0.12), transparent 26%),
+    radial-gradient(circle at top right, rgba(26, 26, 46, 0.03), transparent 24%),
+    linear-gradient(180deg, #f8f3ea 0%, #ffffff 44%, #ffffff 100%);
   color: #1a1a1a;
 }
 
 .article {
   width: 100%;
-  margin: 0 auto;
-  padding: clamp(24px, 3vw, 42px);
-  border: 1px solid rgba(232, 225, 219, 0.92);
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 26px 70px rgba(26, 26, 46, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.headerGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 360px);
-  gap: 24px;
-  align-items: start;
-  margin-bottom: 30px;
-}
-
-.headerContent {
-  min-width: 0;
-}
-
-.asideCard {
-  position: sticky;
-  top: 24px;
-  padding: 22px;
-  border: 1px solid rgba(232, 225, 219, 0.92);
-  border-radius: 22px;
-  background: linear-gradient(180deg, #fffdf8 0%, #ffffff 100%);
-  box-shadow: 0 14px 32px rgba(26, 26, 46, 0.06);
-}
-
-.asideLabel {
-  margin: 0 0 14px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #8a6d1f;
-}
-
-.asideList {
   margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 12px;
+  padding: 0 clamp(22px, 5vw, 72px);
+  border: 0;
+  border-bottom: 1px solid rgba(232, 225, 219, 0.92);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-.asideList li {
-  position: relative;
-  padding-left: 18px;
-  font-size: 14px;
-  line-height: 1.55;
-  color: #2a2a2a;
-}
-
-.asideList li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.65em;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent-solid);
-}
-
-.article::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, var(--accent-solid), rgba(224, 193, 90, 0.2));
+.header {
+  margin-bottom: 28px;
 }
 
 .kicker {
@@ -109,19 +44,22 @@
 }
 
 .title {
-  margin: 0;
+  margin: 28px auto 24px;
   font-family: var(--font-heading);
-  font-size: var(--text-title-size);
-  line-height: 1.1;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.08;
   font-weight: 500;
-  letter-spacing: 0;
+  color: #2b2418;
+  letter-spacing: -0.02em;
+  max-width: 30ch;
+  text-align: center;
 }
 
 .meta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin: 16px 0 30px;
+  margin: 16px 0 18px;
   padding: 8px 14px;
   border: 1px solid rgba(232, 225, 219, 0.95);
   border-radius: 999px;
@@ -130,13 +68,24 @@
   font-size: 14px;
 }
 
-.image {
-  width: 100%;
-  height: auto;
-  border-radius: 24px;
-  display: block;
-  margin-bottom: 32px;
-  box-shadow: 0 20px 42px rgba(26, 26, 46, 0.12);
+.intro {
+  margin: 0;
+  max-width: 78ch;
+  font-size: 17px;
+  line-height: 1.9;
+  color: #2a2a2a;
+}
+
+.intro + .intro {
+  margin-top: 12px;
+}
+
+.highlight {
+  padding: 0 4px;
+  border-radius: 6px;
+  background: rgba(224, 193, 90, 0.18);
+  color: #1f1f1f;
+  font-weight: 700;
 }
 
 .content {
@@ -147,93 +96,139 @@
   color: #2a2a2a;
 }
 
-.content p:first-of-type {
-  font-size: 18px;
-  line-height: 1.82;
-  color: #1f1f1f;
+.section {
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(232, 225, 219, 0.92);
+  background: #ffffff;
 }
 
-.content p + p {
-  margin-top: -2px;
+.sectionEmphasis {
+  background: linear-gradient(180deg, #fffdf8 0%, #ffffff 100%);
 }
 
 .sectionTitle {
-  margin: 22px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
   font-family: var(--font-heading);
-  font-size: 26px;
-  line-height: 1.12;
+  font-size: 24px;
+  line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #1a1a1a;
 }
 
-.contentList {
+.factorNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(224, 193, 90, 0.16);
+  color: #8a6d1f;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.section p {
   margin: 0;
-  padding-left: 22px;
+}
+
+.section p + p {
+  margin-top: 10px;
+}
+
+.blockText {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+}
+
+.note {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border-left: 4px solid #e0c15a;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #faf8f2 0%, #fffdf8 100%);
+  color: #1f1f1f;
+  white-space: pre-line;
+}
+
+.sectionLabel {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a6d1f;
+}
+
+.highlightList {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
   color: #2a2a2a;
 }
 
-.contentList li {
+.highlightList li {
   padding-left: 4px;
 }
 
-.quote {
-  margin: 0;
-  padding: 20px 22px;
-  border-left: 4px solid #e0c15a;
-  background: linear-gradient(180deg, #faf8f2 0%, #fffdf8 100%);
-  border-radius: 14px;
-  color: #1f1f1f;
-}
-
-@media (min-width: 769px) {
-  .content {
-    padding-right: 12px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .headerGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .asideCard {
-    position: relative;
-    top: auto;
-  }
+.footerGap {
+  height: 96px;
 }
 
 @media (max-width: 768px) {
   .page {
-    padding: 22px 14px 56px;
+    padding: 28px 0 96px;
   }
 
   .article {
-    padding: 22px 18px;
-    border-radius: 24px;
+    padding: 0 16px 22px;
+    border-bottom: 1px solid rgba(232, 225, 219, 0.92);
   }
 
   .title {
-    font-size: var(--text-title-size);
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    margin: 24px auto 18px;
+    max-width: 100%;
+    text-align: center;
   }
 
-  .sectionTitle {
-    font-size: 22px;
+  .intro {
+    font-size: 16px;
+    line-height: 1.82;
   }
 
   .content {
     font-size: 16px;
-    gap: 16px;
+    gap: 14px;
   }
 
-  .content p:first-of-type {
-    font-size: 16.5px;
-  }
-
-  .asideCard {
+  .section {
     padding: 18px;
     border-radius: 18px;
+  }
+
+  .sectionTitle {
+    font-size: 21px;
+  }
+
+  .factorNumber {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .note {
+    padding: 14px 16px;
+  }
+
+  .footerGap {
+    height: 72px;
   }
 }

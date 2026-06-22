@@ -8,7 +8,7 @@ import styles from "./ProjectSection.module.css";
 
 const projects = [
   {
-    src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=1200&q=80",
+    src: "/cards/PREMIUMRETAIL.webp",
     alt: "Premium retail space exterior",
     title: "PREMIUM RETAIL",
     type: "Town Square",
@@ -17,7 +17,7 @@ const projects = [
     tags: "Retail | Daily Needs | High Visibility",
   },
   {
-    src: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1200&q=80",
+    src: "/cards/modernoffice.webp",
     alt: "Modern office building exterior",
     title: "MODERN OFFICES",
     type: "Town Square",
@@ -27,7 +27,7 @@ const projects = [
        tags: "Offices | Pro Spaces | Growth Hub",
   },
   {
-    src: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&q=80",
+    src: "/cards/cafe.webp",
     alt: "Food court and cafe area exterior",
     title: "FOOD COURT & CAFES",
     type: "Town Square",
@@ -37,7 +37,7 @@ const projects = [
     tags: "Food Court | Cafes | Rooftop Garden",
   },
   {
-    src: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80",
+    src: "/cards/ENTERTAINMENTZONE.webp",
     alt: "Entertainment zone interior",
     title: "ENTERTAINMENT ZONE",
     type: "Town Square",
@@ -47,7 +47,7 @@ const projects = [
     tags: "Gaming | Leisure | Family Friendly",
   },
   {
-    src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80",
+    src: "/cards/FITNESS&WELLNESS.webp",
     alt: "Fitness and wellness space interior",
     title: "FITNESS & WELLNESS",
     type: "Town Square",

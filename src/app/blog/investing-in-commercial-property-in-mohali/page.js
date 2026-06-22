@@ -1,8 +1,48 @@
 ﻿import styles from "./page.module.css";
+import JsonLd from "../../../components/JsonLd";
+import {
+  buildBlogBreadcrumbSchema,
+  buildBlogMetadata,
+  buildBlogPostingSchema,
+} from "../../../lib/blogSeo";
+
+const title = "Top Benefits of Investing in Commercial Property in Mohali | Town Square Mohali";
+const description =
+  "Mohali me commercial property me invest karne ke top benefits: connectivity, growing infrastructure, retail & office demand, aur long-term appreciation. Town Square Mohali.";
+const path = "/blog/investing-in-commercial-property-in-mohali";
+const keywords = [
+  "commercial property in Mohali",
+  "commercial investment in Mohali",
+  "invest in commercial real estate Mohali",
+  "retail shops in Mohali",
+  "Town Square Mohali",
+];
+
+export const metadata = buildBlogMetadata({
+  title,
+  description,
+  path,
+  keywords,
+});
+
+const blogPostingSchema = buildBlogPostingSchema({
+  title: "Top Benefits of Investing in Commercial Property in Mohali",
+  description,
+  path,
+  keywords,
+  articleSection: "Commercial Investment",
+});
+
+const breadcrumbSchema = buildBlogBreadcrumbSchema({
+  title: "Top Benefits of Investing in Commercial Property in Mohali",
+  path,
+});
 
 export default function InvestingInCommercialPropertyInMohaliPage() {
   return (
     <main className={styles.page}>
+      <JsonLd data={blogPostingSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <article className={styles.article}>
         <h1 className={styles.title}>
           Top Benefits of Investing in Commercial Property in Mohali
@@ -89,6 +129,16 @@ export default function InvestingInCommercialPropertyInMohaliPage() {
             <p>
               Invest where growth is happening. Invest where the future is being built. Invest in
               Town Square Mohali.
+            </p>
+          </section>
+
+          <section className={styles.section}>
+            <p className={styles.sectionHeading}>Related Reads</p>
+            <p>
+              Explore the <a href="/blog/commercial-real-estate-trends-2026">2026 commercial real estate trends</a> article and the <a href="/blog/five-factors-before-buying-a-commercial-shop">commercial shop buying guide</a>.
+            </p>
+            <p>
+              You can also return to the <a href="/blog">blog archive</a> for the full set of insights.
             </p>
           </section>
         </div>

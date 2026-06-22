@@ -115,7 +115,7 @@ export default function Header() {
           </div>
 
           <Link href="/" className={styles.logo}>
-            <Image src="/logo.png" alt="BRICKLINE" width={140} height={40} priority />
+            <Image src="/logo.png" alt="town square mohali" width={140} height={40} priority />
           </Link>
 
           <div className={styles.navRight}>
@@ -130,7 +130,7 @@ export default function Header() {
 
       <div className={styles.mobileNav}>
         <Link href="/" className={styles.logo}>
-          <Image src="/logo.png" alt="BRICKLINE" width={140} height={40} />
+          <Image src="/logo.png" alt="town square mohali" width={140} height={40} />
         </Link>
         <button
           type="button"
@@ -156,7 +156,7 @@ export default function Header() {
         >
           <div className={styles.drawerTop}>
             <div className={styles.drawerBrand}>
-              <Image src="/logo.png" alt="townseqare mohali logo" width={120} height={32} />
+              <Image src="/logo.png" alt="town square mohali logo" width={120} height={32} />
             </div>
             <button
               type="button"

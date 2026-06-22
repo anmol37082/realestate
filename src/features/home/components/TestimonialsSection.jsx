@@ -8,59 +8,59 @@ import styles from "./TestimonialsSection.module.css";
 
 const testimonials = [
   {
-    mainSrc: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    mainSrc: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
-    alt: "Client testimonial one",
-    name: "Gregg Bergstrom",
-    email: "gregg.bergstrom@gmail.com",
+    alt: "Resident testimonial",
+    name: "Rajesh Khanna",
+    email: "rajesh.khanna82@gmail.com",
     text1:
-      "Working with Bricklane was a fantastic experience from start to finish. They listened to exactly what I wanted, and within a few short weeks, I found my dream home.",
+      "Finding a home in Mohali was a challenging task, but the Town Square team made it incredibly simple. I am particularly impressed with the location and the thoughtful township planning.",
     text2:
-      "They went above and beyond to ensure everything went smoothly. Communication was always clear and timely.",
+      "The entire booking process was transparent and hassle-free.",
   },
   {
-    mainSrc: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80",
-    avatarSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-    alt: "Client testimonial two",
-    name: "Ava Mitchell",
-    email: "ava.mitchell@gmail.com",
+    mainSrc: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+    avatarSrc: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&q=80",
+    alt: "Priya Sharma testimonial",
+    name: "Priya Sharma",
+    email: "priya.sharma.pro@gmail.com",
     text1:
-      "The team understood the brief quickly and showed us homes that matched our style, budget, and long-term plans without wasting time.",
+      "As a working professional, I was looking for a space that is secure and well-connected to all essential amenities. The infrastructure and connectivity at Town Square are truly excellent.",
     text2:
-      "Every step felt organized and calm. Their guidance made a stressful process feel simple and transparent.",
+      "My whole family is very excited to move in!",
   },
   {
-    mainSrc: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
-    avatarSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
-    alt: "Client testimonial three",
-    name: "Noah Carter",
-    email: "noah.carter@gmail.com",
+    mainSrc: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&q=80",
+    avatarSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80",
+    alt: "Amit Verma testimonial",
+    name: "Amit Verma",
+    email: "amit.v2026@gmail.com",
     text1:
-      "Their market knowledge was excellent. We got clear advice on value, timing, and what improvements would matter most.",
+      "I invested in a property here for its high growth potential. In the emerging market of Mohali, Town Square stands out as a premium and well-planned project.",
     text2:
-      "We ended up with a property that felt right from day one, and the closing process was handled very efficiently.",
+      "The sales team is highly professional and provided complete, detailed information at every step.",
   },
   {
     mainSrc: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
-    alt: "Client testimonial four",
-    name: "Sofia Lane",
-    email: "sofia.lane@gmail.com",
+    alt: "Sunita Arora testimonial",
+    name: "Sunita Arora",
+    email: "sunita.arora.h@gmail.com",
     text1:
-      "What stood out most was the attention to detail. Nothing felt rushed, and every property view was tailored to our preferences.",
+      "The architecture and open-space concept at Town Square are fantastic. The amenities promised are being delivered exactly as expected.",
     text2:
-      "They kept us informed at each stage, and the final result exceeded what we had originally hoped for.",
+      "It is rare to find such a blend of luxury and affordability in a prime location. Extremely happy with this investment!",
   },
   {
     mainSrc: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
     avatarSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
-    alt: "Client testimonial five",
-    name: "Ethan Brooks",
-    email: "ethan.brooks@gmail.com",
+    alt: "Vikram Singh testimonial",
+    name: "Vikram Singh",
+    email: "vikram.singh.official@gmail.com",
     text1:
-      "A smooth, professional, and genuinely helpful experience from the first call to the final signature.",
+      "As a first-time homebuyer, I was quite anxious about the process. However, the team at Town Square guided us through everything—from documentation to home loans—with great patience.",
     text2:
-      "Their advice was practical, their response time was quick, and the whole process felt well managed.",
+      "Their support made our journey very smooth. I would highly recommend them.",
   },
 ];
 
@@ -192,7 +192,7 @@ export default function TestimonialsSection() {
               }`}
             >
               <p>
-                <strong>Bricklane</strong> {activeTestimonial.text1}
+                <strong>Town Square Mohali</strong> {activeTestimonial.text1}
               </p>
               <p>{activeTestimonial.text2}</p>
             </div>
@@ -203,7 +203,7 @@ export default function TestimonialsSection() {
                 }`}
               >
                 <p>
-                  <strong>Bricklane</strong> {incomingTestimonial.text1}
+                  <strong>Town Square Mohali</strong> {incomingTestimonial.text1}
                 </p>
                 <p>{incomingTestimonial.text2}</p>
               </div>

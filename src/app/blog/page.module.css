@@ -1,0 +1,219 @@
+.page {
+  padding: 60px 20px 92px;
+  background:
+    radial-gradient(circle at top left, rgba(224, 193, 90, 0.16), transparent 24%),
+    radial-gradient(circle at top right, rgba(26, 26, 46, 0.05), transparent 22%),
+    linear-gradient(180deg, #f7f2e8 0%, #fcfbf7 18%, #ffffff 58%);
+  color: #1a1a1a;
+}
+
+.hero {
+  max-width: 1180px;
+  margin: 0 auto 30px;
+  padding: 28px 30px 30px;
+  border: 1px solid rgba(232, 225, 219, 0.95);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 20px 52px rgba(26, 26, 46, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent-solid), rgba(224, 193, 90, 0.16));
+}
+
+.kicker {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a6d1f;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--font-heading);
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 0.95;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  max-width: 72ch;
+  margin: 16px 0 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #5f5850;
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid rgba(232, 225, 219, 0.95);
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 40px rgba(26, 26, 46, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(224, 193, 90, 0.85);
+  box-shadow: 0 22px 48px rgba(26, 26, 46, 0.12);
+}
+
+.cardLink {
+  display: block;
+  height: 100%;
+  color: inherit;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardBody {
+  padding: 22px 22px 24px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a6d1f;
+}
+
+.cardBody h2 {
+  margin: 12px 0 10px;
+  font-family: var(--font-heading);
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.cardBody p {
+  margin: 0;
+  color: #5f5850;
+  line-height: 1.75;
+}
+
+.readMore {
+  display: inline-flex;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.readMore::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent-solid);
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .readMore::after {
+  transform: scaleX(1);
+}
+
+.aside {
+  max-width: 1180px;
+  margin: 26px auto 0;
+  padding: 22px 24px;
+  border: 1px solid rgba(232, 225, 219, 0.95);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fffdf8 0%, #ffffff 100%);
+  color: #4f4942;
+  line-height: 1.8;
+}
+
+.asideLabel {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a6d1f;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 24px 14px 56px;
+  }
+
+  .hero {
+    padding: 22px 18px 24px;
+    border-radius: 24px;
+  }
+
+  .title {
+    max-width: none;
+    font-size: clamp(34px, 11vw, 58px);
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardBody h2 {
+    font-size: 22px;
+  }
+
+  .aside {
+    margin-top: 22px;
+  }
+}

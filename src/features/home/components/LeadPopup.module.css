@@ -23,6 +23,15 @@
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
 }
 
+@media (min-width: 769px) {
+  .modal {
+    width: min(80vw, 760px);
+    aspect-ratio: 4 / 3;
+    height: auto;
+    max-height: 86vh;
+  }
+}
+
 .closeBtn {
   position: absolute;
   top: 14px;

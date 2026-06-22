@@ -111,9 +111,9 @@ export default function GalleryPage() {
     <section className={styles.section}>
       <div className={styles.header}>
         <span className={styles.tag}>Gallery</span>
-        <h1 className={styles.title}>Visual Tour</h1>
+        <h1 className={styles.title}>Experience Town Square Through Every Frame</h1>
         <p className={styles.subtitle}>
-          A closer look at the spaces, designs, and surroundings that define Town Square Mohali.
+        Take a closer look at the spaces, architecture, and experiences that make Town Square Mohali a thriving hub for business, retail, and lifestyle.
         </p>
       </div>
 
