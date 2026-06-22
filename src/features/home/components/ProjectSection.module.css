@@ -274,14 +274,25 @@
   transform: translateY(-50%);
   width: 46px;
   height: 46px;
+  padding: 0;
   border-radius: 999px;
   border: 1px solid rgba(17, 17, 17, 0.12);
   background: rgba(255, 255, 255, 0.92);
   color: #111;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
   box-shadow: 0 12px 28px rgba(22, 16, 11, 0.08);
   z-index: 10;
+}
+
+.navBtn svg {
+  display: block;
+  flex: none;
 }
 
 .navBtn:hover,
@@ -408,5 +419,4 @@
   }
 
 }
-
 

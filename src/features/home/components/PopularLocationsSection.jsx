@@ -17,7 +17,7 @@ const locations = [
     count: "10 min",
   },
   {
-    src: "/nearlocations/khararbusstand.webp",
+    src: "/nearlocations/khrararbusstand.webp",
     alt: "Kharar Bus Stand",
     title: "Kharar Bus Stand",
     price: "Around 10 minutes away",
