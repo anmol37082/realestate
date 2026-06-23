@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./NatureSection.module.css";
 
@@ -23,6 +22,8 @@ export default function NatureSection() {
   const [incomingIndex, setIncomingIndex] = useState(null);
   const [direction, setDirection] = useState("next");
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [videoAspectRatio, setVideoAspectRatio] = useState("16 / 9");
+  const videoRef = useRef(null);
   const isTransitioningRef = useRef(false);
   const transitionTimerRef = useRef(null);
   const activeSlide = natureSlides[activeIndex];
@@ -86,18 +87,33 @@ export default function NatureSection() {
     goToSlide((activeIndex + 1) % natureSlides.length, "next");
   };
 
+  const handleVideoMetadata = () => {
+    const video = videoRef.current;
+
+    if (!video || !video.videoWidth || !video.videoHeight) {
+      return;
+    }
+
+    setVideoAspectRatio(`${video.videoWidth} / ${video.videoHeight}`);
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.media}>
-        <div className={styles.imageLayer}>
-          <Image
-            src={activeSlide.image}
-            alt={activeSlide.heading}
-            fill
-            sizes="100vw"
+        <div className={styles.imageLayer} style={{ "--video-aspect": videoAspectRatio }}>
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
             className={styles.image}
-            priority
-          />
+            poster="/mapimage.webp"
+            onLoadedMetadata={handleVideoMetadata}
+          >
+            <source src="/naturebanner/websitemapvideo.webm" type="video/webm" />
+            <source src="/naturebanner/websitemapvideo.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
 
