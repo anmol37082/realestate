@@ -1,3 +1,4 @@
+import ScrollTextTitle from "../../home/components/ScrollTextTitle";
 import styles from "./AboutCompany.module.css";
 
 export default function AboutCompany() {
@@ -6,7 +7,7 @@ export default function AboutCompany() {
       <div className={styles.grid}>
         <div>
           <span className={styles.tag}>About Town Square</span>
-          <h2>Where Every Day Brings New Opportunities</h2>
+          <ScrollTextTitle as="h2">Where Every Day Brings New Opportunities</ScrollTextTitle>
           <p style={{ maxWidth: "560px" }}>
             Town Square Mohali is a vibrant commercial destination where businesses,
             shopping, dining, and everyday experiences come together. Designed to create a place people love to visit and businesses are proud to be part of.
@@ -42,4 +43,3 @@ export default function AboutCompany() {
     </section>
   );
 }
-

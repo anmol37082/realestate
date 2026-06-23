@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ScrollTextTitle from "./ScrollTextTitle";
 import styles from "./PopularLocationsSection.module.css";
 
 const locations = [
@@ -50,7 +51,7 @@ export default function PopularLocationsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Well-connected to Key Destinations</h2>
+        <ScrollTextTitle className={styles.title}>Well-connected to Key Destinations</ScrollTextTitle>
         <div className={styles.subtitle}>
           <p className={styles.subtitleSupport}>
             Easy access to major educational institutions, commercial hubs, and city landmarks keeps the location highly connected.

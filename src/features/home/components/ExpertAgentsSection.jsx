@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Mail, MessageCircle, Phone } from "lucide-react";
+import ScrollTextTitle from "./ScrollTextTitle";
 import styles from "./ExpertAgentsSection.module.css";
 
 const agents = [
@@ -33,7 +34,7 @@ export default function ExpertAgentsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Meet Our Team Page</h2>
+        <ScrollTextTitle className={styles.title}>Meet Our Team Page</ScrollTextTitle>
         <p className={styles.subtitle}>Our Trusted Advisors</p>
       </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 import styles from "./LeadPopup.module.css";
 
@@ -103,6 +104,16 @@ export default function LeadPopup() {
         {!showForm ? (
           <div className={styles.teaser}>
             <div className={styles.teaserVisual}>
+              <div className={styles.teaserMedia}>
+                <Image
+                  src="/popup.png"
+                  alt="Town Square Mohali"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={styles.teaserImage}
+                />
+              </div>
               <div className={styles.teaserBadge}>town sqare mohali</div>
               <h2>Invest in the Future of Mohali</h2>
               <p>Explore strategically located properties with strong appreciation potential, attractive payment plans, and exclusive pre-launch benefits.</p>

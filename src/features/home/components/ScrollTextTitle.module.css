@@ -1,0 +1,55 @@
+.root {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+}
+
+.text {
+  display: inline;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.space {
+  white-space: normal;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.9em);
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 540ms;
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

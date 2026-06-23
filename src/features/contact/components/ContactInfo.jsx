@@ -1,9 +1,10 @@
 import Image from "next/image";
 import ContactForm from "./ContactForm";
+import ScrollTextTitle from "../../home/components/ScrollTextTitle";
 import styles from "./ContactInfo.module.css";
 
 const heroImage =
-  "https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?w=600&auto=format&fit=crop&q=60";
+  "/contact/contactform5.webp";
 
 export default function ContactInfo() {
   return (
@@ -12,7 +13,7 @@ export default function ContactInfo() {
         <div className={styles.content}>
           <span className={styles.tag}>Get In Touch</span>
 
-          <h2>Tell Us What You Need</h2>
+          <ScrollTextTitle as="h2" className={styles.title}>Tell Us What You Need</ScrollTextTitle>
 
           <p>
             Our team is here to help you explore the right space at

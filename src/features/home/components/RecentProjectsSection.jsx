@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ScrollTextTitle from "./ScrollTextTitle";
 import styles from "./RecentProjectsSection.module.css";
 
 const cards = [
@@ -32,7 +33,7 @@ export default function RecentProjectsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Every Space Has a Purpose</h2>
+        <ScrollTextTitle className={styles.title}>Every Space Has a Purpose</ScrollTextTitle>
         <p className={styles.subtitle}>
           Thoughtfully designed spaces where businesses grow, and people connect.
         </p>

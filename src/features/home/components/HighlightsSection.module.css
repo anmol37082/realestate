@@ -40,6 +40,18 @@
 
 .card {
   padding: 10px 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .icon {
@@ -101,5 +113,18 @@
 
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .cardVisible {
+    opacity: 1;
+    transform: none;
   }
 }

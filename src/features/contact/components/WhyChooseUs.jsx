@@ -1,4 +1,8 @@
+ "use client";
+
+import { useEffect, useRef, useState } from "react";
 import { BadgeCheck, Headset, Landmark, ShieldCheck, Sparkles, Wallet } from "lucide-react";
+import ScrollTextTitle from "../../home/components/ScrollTextTitle";
 import styles from "./WhyChooseUs.module.css";
 
 const items = [
@@ -35,16 +39,48 @@ const items = [
 ];
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef(null);
+  const [hasEntered, setHasEntered] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+
+    if (!node || hasEntered) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasEntered(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -18% 0px",
+      }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [hasEntered]);
+
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={sectionRef}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Why Invest in Town Square</h2>
+        <ScrollTextTitle as="h2" className={styles.title}>Why Invest in Town Square</ScrollTextTitle>
         <p className={styles.subtitle}>Strategic location and premium amenities for secure investment</p>
       </div>
 
       <div className={styles.grid}>
-        {items.map((item) => (
-          <article key={item.title} className={styles.card}>
+        {items.map((item, index) => (
+          <article
+            key={item.title}
+            className={`${styles.card} ${hasEntered ? styles.cardVisible : ""}`}
+            style={{ "--reveal-delay": `${index * 220}ms` }}
+          >
             <div className={styles.icon}>{item.icon}</div>
             <h3>{item.title}</h3>
             <p>{item.text}</p>

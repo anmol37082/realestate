@@ -1,3 +1,4 @@
+import ScrollTextTitle from "../../home/components/ScrollTextTitle";
 import styles from "./OfficeLocation.module.css";
 
 export default function OfficeLocation() {
@@ -5,7 +6,7 @@ export default function OfficeLocation() {
     <section id="office-location" className={styles.section}>
       <div className={styles.header}>
         <span className={styles.tag}>Office Location</span>
-        <h2 className={styles.title}>Let&apos;s Meet at Town Square</h2>
+        <ScrollTextTitle as="h2" className={styles.title}>Let&apos;s Meet at Town Square</ScrollTextTitle>
         <p className={styles.subtitle}>Schedule a site visit and discover spaces designed for your business. </p>
       </div>
 
@@ -24,4 +25,3 @@ export default function OfficeLocation() {
     </section>
   );
 }
-

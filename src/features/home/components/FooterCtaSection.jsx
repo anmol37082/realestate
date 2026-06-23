@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, CheckCheck } from "lucide-react";
+import ScrollTextTitle from "./ScrollTextTitle";
 import styles from "./FooterCtaSection.module.css";
 
 export default function FooterCtaSection() {
@@ -7,9 +8,9 @@ export default function FooterCtaSection() {
     <section className={styles.section}>
       <div className={styles.left}>
         <p className={styles.kicker}>A better business future starts here.</p>
-        <h2 className={styles.heading}>
+        <ScrollTextTitle className={styles.heading}>
           Where growth, location, and opportunity come together.
-        </h2>
+        </ScrollTextTitle>
         <div className={styles.badges}>
           <div className={styles.badge}>
             <CheckCheck />

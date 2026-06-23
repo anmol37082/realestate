@@ -32,7 +32,20 @@
   border: 1px solid #ece6e1;
   border-radius: 6px;
   padding: 22px 20px 18px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
@@ -83,5 +96,18 @@
 
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .cardVisible {
+    opacity: 1;
+    transform: none;
   }
 }

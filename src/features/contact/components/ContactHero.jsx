@@ -8,7 +8,7 @@ export default function ContactHero() {
       <div className={styles.media}>
         <div className={styles.imageLayer}>
           <Image
-            src="https://images.unsplash.com/photo-1778222013870-030471426e2c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="/contact/hero.webp"
             alt="Modern apartment buildings against a cloudy sky"
             fill
             sizes="100vw"

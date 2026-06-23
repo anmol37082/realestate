@@ -1,4 +1,5 @@
 import { HelpCircle, MessageCircle, Calendar, FileCheck } from "lucide-react";
+import ScrollTextTitle from "../../home/components/ScrollTextTitle";
 import styles from "./FAQSection.module.css";
 
 const faqs = [
@@ -40,7 +41,7 @@ export default function FAQSection() {
     <section className={styles.section}>
       <div className={styles.header}>
         <span className={styles.tag}>FAQ</span>
-        <h2 className={styles.title}>Everything You Need to Know</h2>
+        <ScrollTextTitle as="h2" className={styles.title}>Everything You Need to Know</ScrollTextTitle>
         <p className={styles.subtitle}>Explore answers to help you understand Town Square Mohali better. </p>
       </div>
 

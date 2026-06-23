@@ -1,3 +1,6 @@
+ "use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -8,6 +11,7 @@ import {
   UtensilsCrossed,
   Ticket,
 } from "lucide-react";
+import ScrollTextTitle from "./ScrollTextTitle";
 import styles from "./PropertyCategoriesSection.module.css";
 
 const categories = [
@@ -50,16 +54,48 @@ const categories = [
 ];
 
 export default function PropertyCategoriesSection() {
+  const sectionRef = useRef(null);
+  const [hasEntered, setHasEntered] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+
+    if (!node || hasEntered) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasEntered(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -18% 0px",
+      }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [hasEntered]);
+
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={sectionRef}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Featured Spaces </h2>
+        <ScrollTextTitle className={styles.title}>Featured Spaces </ScrollTextTitle>
         <p className={styles.subtitle}>Spaces for Every Business Need</p>
       </div>
 
       <div className={styles.grid}>
-        {categories.map((category) => (
-          <article key={category.title} className={styles.card}>
+        {categories.map((category, index) => (
+          <article
+            key={category.title}
+            className={`${styles.card} ${hasEntered ? styles.cardVisible : ""}`}
+            style={{ "--reveal-delay": `${index * 220}ms` }}
+          >
             <div className={styles.icon}>{category.icon}</div>
             <div className={styles.meta}>
               <h3>{category.title}</h3>

@@ -23,6 +23,20 @@
   display: none;
 }
 
+@media (max-width: 1120px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 4px;
+  }
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -201,7 +215,7 @@
 .logo :global(img) {
   width: auto !important;
   max-width: 100% !important;
-  height: 72px;
+  height: 88px;
   object-fit: contain;
   display: block;
 }
@@ -542,26 +556,18 @@
     padding: 14px 8px;
   }
 
-  .desktopNav {
-    display: none;
-  }
-
-  .mobileNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 0 4px;
-  }
-
   .logo {
     font-size: 16px;
     letter-spacing: 1.2px;
   }
 
+  .mobileNav .logo :global(img) {
+    height: 54px;
+  }
+
   .menuButton {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.08);
   }

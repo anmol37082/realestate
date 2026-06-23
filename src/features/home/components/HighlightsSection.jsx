@@ -1,5 +1,9 @@
+ "use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Building2, CarFront, MapPinned } from "lucide-react";
+import ScrollTextTitle from "./ScrollTextTitle";
 import styles from "./HighlightsSection.module.css";
 
 const highlights = [
@@ -21,18 +25,50 @@ const highlights = [
 ];
 
 export default function HighlightsSection() {
+  const sectionRef = useRef(null);
+  const [hasEntered, setHasEntered] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+
+    if (!node || hasEntered) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasEntered(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.32,
+        rootMargin: "0px 0px -18% 0px",
+      }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [hasEntered]);
+
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={sectionRef}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Why Town Square is a Great Choice</h2>
+        <ScrollTextTitle className={styles.title}>Why Town Square is a Great Choice</ScrollTextTitle>
         <Link href="/" className={styles.outlineBtn}>
           Get Started <ArrowRight size={14} />
         </Link>
       </div>
 
       <div className={styles.grid}>
-        {highlights.map((item) => (
-          <article key={item.title} className={styles.card}>
+        {highlights.map((item, index) => (
+          <article
+            key={item.title}
+            className={`${styles.card} ${hasEntered ? styles.cardVisible : ""}`}
+            style={{ "--reveal-delay": `${index * 220}ms` }}
+          >
             <div className={styles.icon}>{item.icon}</div>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
