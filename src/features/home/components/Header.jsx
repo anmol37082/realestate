@@ -140,7 +140,7 @@ export default function Header() {
           aria-controls="mobile-menu"
           onClick={() => setIsDrawerOpen((value) => !value)}
         >
-          {isDrawerOpen ? <X size={36} /> : <Menu size={36} />}
+          {isDrawerOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 

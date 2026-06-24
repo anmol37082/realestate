@@ -569,13 +569,13 @@
   .menuButton {
     width: 86px;
     height: 86px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    background: transparent;
   }
 
   .menuButton :global(svg) {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
   }
 
   .drawer {
