@@ -114,13 +114,11 @@ export default function LeadPopup() {
                   className={styles.teaserImage}
                 />
               </div>
-              <div className={styles.teaserBadge}>town sqare mohali</div>
               <h2>Invest in the Future of Mohali</h2>
               <p>Explore strategically located properties with strong appreciation potential, attractive payment plans, and exclusive pre-launch benefits.</p>
             </div>
 
             <div className={styles.teaserContent}>
-              <div className={styles.kicker}>PREMIUM ACCESS </div>
               <h3>Get the latest property insights</h3>
               <p>
                A quick form unlocks curated opportunities, pricing details, and a direct callback from our team.

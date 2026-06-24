@@ -10,7 +10,7 @@ import styles from "./Header.module.css";
 const leftLinks = [
   { label: "Projects", href: "/#projects" },
   { label: "Gallery", href: "/gallery" },
-  { label: "contact us", href: "/contact" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 const paymentPlanItems = [
@@ -140,7 +140,7 @@ export default function Header() {
           aria-controls="mobile-menu"
           onClick={() => setIsDrawerOpen((value) => !value)}
         >
-          {isDrawerOpen ? <X size={22} /> : <Menu size={22} />}
+          {isDrawerOpen ? <X size={36} /> : <Menu size={36} />}
         </button>
       </div>
 

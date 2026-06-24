@@ -109,16 +109,23 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: var(--accent-solid);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #fff;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-inline: 18px;
+}
+
+.teaserBadge {
+  color: #fff;
+}
+
+.kicker {
+  color: #1f2937;
 }
 
 .teaserVisual h2 {
