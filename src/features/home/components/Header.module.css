@@ -571,6 +571,7 @@
     height: 86px;
     border-radius: 0;
     background: transparent;
+    transform: translateX(18px);
   }
 
   .menuButton :global(svg) {
