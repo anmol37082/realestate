@@ -9,6 +9,7 @@ import styles from "./Header.module.css";
 
 const leftLinks = [
   { label: "Projects", href: "/#projects" },
+  { label: "Mission", href: "/mission" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact us", href: "/contact" },
 ];
@@ -36,7 +37,7 @@ export default function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isPaymentPlanOpen, setIsPaymentPlanOpen] = useState(false);
   const pathname = usePathname();
-  const isTransparentPage = pathname === "/" || pathname === "/contact";
+  const isTransparentPage = pathname === "/" || pathname === "/contact" || pathname === "/mission";
 
   const closeDrawer = () => {
     setIsDrawerOpen(false);

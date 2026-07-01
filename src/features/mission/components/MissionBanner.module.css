@@ -1,0 +1,132 @@
+.section {
+  padding: 18px 20px 12px;
+}
+
+.container {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.copy {
+  padding: 28px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  box-shadow: 0 14px 34px rgba(26, 26, 26, 0.04);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8b7850;
+}
+
+.title {
+  margin-top: 12px;
+  font-size: var(--text-title-size);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  max-width: 12ch;
+}
+
+.text {
+  margin-top: 14px;
+  color: #5f5f5f;
+  line-height: 1.8;
+  max-width: 56ch;
+}
+
+.pointList {
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.point {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f8f8f8;
+  border: 1px solid rgba(26, 26, 26, 0.06);
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.mediaWrap {
+  position: relative;
+  min-height: 360px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  box-shadow: 0 14px 34px rgba(26, 26, 26, 0.05);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 14, 14, 0.1) 0%, rgba(14, 14, 14, 0.48) 100%);
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 1;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #2b2b2b;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 34ch;
+}
+
+@media (max-width: 960px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .mediaWrap {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .copy {
+    padding: 22px;
+  }
+
+  .title {
+    max-width: 15ch;
+  }
+}

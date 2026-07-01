@@ -16,6 +16,11 @@ const routes = [
     changeFrequency: "monthly",
     priority: 0.8,
   },
+  {
+    path: "/mission",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
 ];
 
 export default function sitemap() {

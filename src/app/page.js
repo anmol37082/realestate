@@ -10,7 +10,6 @@ import PropertyCategoriesSection from "../features/home/components/PropertyCateg
 import FullScreenBannerSection from "../features/home/components/FullScreenBannerSection";
 import NatureSection from "../features/home/components/NatureSection";
 import StatsSection from "../features/home/components/StatsSection";
-import TestimonialsSection from "../features/home/components/TestimonialsSection";
 import RecentProjectsSection from "../features/home/components/RecentProjectsSection";
 import {
   absoluteUrl,
@@ -89,7 +88,6 @@ export default function Home() {
       <ExpertAgentsSection />
       <StatsSection />
       <NatureSection />
-      <TestimonialsSection />
       <RecentProjectsSection />
       <BlogPreviewSection />
     </main>

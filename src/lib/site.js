@@ -72,6 +72,21 @@ export const galleryKeywords = [
   "Mohali project photos",
 ];
 
+export const missionKeywords = [
+  "Mohali Town Square mission",
+  "Town Square mission page",
+  "Town Square project mission",
+  "real estate development mission",
+  "commercial project quality",
+  "best construction material",
+  "strong civil team",
+  "premium project development",
+  "construction quality Mohali",
+  "project delivery standards",
+  "Town Square developer focus",
+  "trusted real estate project",
+];
+
 export function absoluteUrl(pathname = "/") {
   return new URL(pathname, `${siteUrl}/`).toString();
 }
